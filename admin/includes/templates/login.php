@@ -1,16 +1,22 @@
 <?php
+  // Admin sigined in
+  if(isset($_SESSION['Username'])){
+    header('Location: dashboard.php');
+  }
   // come from post request
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['user'];
     $password = $_POST['password'];
     $hashedPass = sha1($password);
     // check user exist
-    $stmt = $db=>prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
+    $stmt = $db->prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
     $stmt->execute(array($username, $hashedPass));
     $count = $stmt->rowCount();
     // check count
     if ($count > 0){
-      echo 'Welcome ' . $username;
+      $_SESSION['Username'] = $username;
+      header('Location: dashboard.php');
+      exit();
     }
   }
 ?>
