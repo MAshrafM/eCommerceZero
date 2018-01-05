@@ -1,0 +1,5 @@
+#db connection
+/admin/connect.php
+#images
+/admin/layout/images
+/layout/images
