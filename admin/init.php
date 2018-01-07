@@ -5,7 +5,7 @@
   $tpl = "includes/templates/"; // template dir
   $styles = "layout/styles/"; // styles dir
   $scripts = "layout/scripts/"; // scripts dir
-  $lang = "includes/languages/" // lang dir
+  $lang = "includes/languages/"; // lang dir
   // session
   session_start();
   // language

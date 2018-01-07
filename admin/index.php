@@ -1,4 +1,6 @@
 <?php
+  // Nonavabar
+  $noNavbar = '';
   include "init.php";
 ?>
 

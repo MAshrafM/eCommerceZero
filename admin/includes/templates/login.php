@@ -1,9 +1,8 @@
 <?php
-  // Nonavabar
-  $noNavbar = '';
   // Admin sigined in
   if(isset($_SESSION['Username'])){
     header('Location: dashboard.php');
+    exit();
   }
   // come from post request
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -16,6 +15,7 @@
     $count = $stmt->rowCount();
     // check count
     if ($count > 0){
+      echo "found";
       $_SESSION['Username'] = $username;
       header('Location: dashboard.php');
       exit();
@@ -29,9 +29,9 @@
   method="POST"
 >
   <h4 class="text-center">
-    Admin Login
+    <?php echo lang('LOGIN'); ?>
   </h4>
-  <input class="form-control" type="text" name="user" placeholder="Username" autocomplete="off" />
-  <input class="form-control" type="password" name="password" placeholder="Password" autocomplete="new-password" />
-  <input class="btn btn-primary btn-block" type="submit" value="login" />
+  <input class="form-control" type="text" name="user" placeholder="<?php echo lang('USERLOGIN'); ?>" autocomplete="off" />
+  <input class="form-control" type="password" name="password" placeholder="<?php echo lang('PASSLOGIN'); ?>" autocomplete="new-password" />
+  <input class="btn btn-primary btn-block" type="submit" value="<?php echo lang('LOGIN'); ?>" />
 </form>
