@@ -17,6 +17,18 @@
         <li>
           <a href="#"><?php echo lang('CAT'); ?></a>
         </li>
+        <li>
+          <a href="#"><?php echo lang('ITEMS'); ?></a>
+        </li>
+        <li>
+          <a href="#"><?php echo lang('MEMBERS'); ?></a>
+        </li>
+        <li>
+          <a href="#"><?php echo lang('STATISTICS'); ?></a>
+        </li>
+        <li>
+          <a href="#"><?php echo lang('LOGS'); ?></a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

@@ -12,6 +12,10 @@
       'BRAND' => 'eComZero',
       'HOME' => 'Home',
       'CAT' => 'Categories',
+      'ITEMS' => 'Items',
+      'MEMBERS' => 'Members',
+      'STATISTICS' => 'Statistics',
+      'LOGS' => 'Logs',
       'EDIT' => 'Edit',
       'SETTING' => 'Setting',
       'LOGOUT' => 'Logout'
