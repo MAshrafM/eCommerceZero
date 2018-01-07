@@ -1,4 +1,6 @@
 <?php
+  // Nonavabar
+  $noNavbar = '';
   // Admin sigined in
   if(isset($_SESSION['Username'])){
     header('Location: dashboard.php');
