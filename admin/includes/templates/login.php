@@ -1,9 +1,10 @@
 <?php
-  // Admin sigined in
+  // Admin signed in
   if(isset($_SESSION['Username'])){
     header('Location: dashboard.php');
     exit();
   }
+  $pageTitle = 'Login';
   // come from post request
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['user'];

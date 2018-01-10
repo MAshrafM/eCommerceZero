@@ -6,10 +6,13 @@
   $styles = "layout/styles/"; // styles dir
   $scripts = "layout/scripts/"; // scripts dir
   $lang = "includes/languages/"; // lang dir
+  $func = "includes/functions/"; // functions dir
   // session
   session_start();
   // language
   include $lang."en.php";
+  // functions
+  include $func."functions.php";
   // header
   include $tpl."header.php";
   // Navbar
