@@ -34,7 +34,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?php echo lang('ADMIN'); ?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#"><?php echo lang('EDIT'); ?></a></li>
+            <li><a href="members.php?v=Edit&uid=<?php echo $_SESSION['ID']; ?>"><?php echo lang('EDIT'); ?></a></li>
             <li><a href="#"><?php echo lang('SETTING'); ?></a></li>
             <li><a href="logout.php"><?php echo lang('LOGOUT'); ?></a></li>
           </ul>

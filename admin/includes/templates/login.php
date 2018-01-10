@@ -4,20 +4,22 @@
     header('Location: dashboard.php');
     exit();
   }
-  $pageTitle = 'Login';
+  //$pageTitle = 'Login';
   // come from post request
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['user'];
     $password = $_POST['password'];
     $hashedPass = sha1($password);
     // check user exist
-    $stmt = $db->prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
+    $stmt = $db->prepare("SELECT UserID, Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
     $stmt->execute(array($username, $hashedPass));
+    $row = $stmt->fetch();
     $count = $stmt->rowCount();
     // check count
     if ($count > 0){
       echo "found";
       $_SESSION['Username'] = $username;
+      $_SESSION['ID'] = $row['UserID'];
       header('Location: dashboard.php');
       exit();
     }

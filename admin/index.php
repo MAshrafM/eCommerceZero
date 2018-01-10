@@ -1,6 +1,7 @@
 <?php
   // Nonavabar
   $noNavbar = '';
+  $pageTitle = 'Login';
   include "init.php";
 ?>
 
