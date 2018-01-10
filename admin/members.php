@@ -3,6 +3,7 @@
   = Manage Member Page
   = ADD | EDIT | DELETE Members
   */
+  $pageTitle = "Members";
   include 'init.php';
   if(isset($_SESSION['Username'])){
     $v = isset($_GET['v']) ? $_GET['v'] : 'Manage';
@@ -11,7 +12,7 @@
       
     } elseif ($v == 'Edit') {
       // Edit Page
-      
+      include $tpl.'edit.php';
     } elseif($v == 'Delete') {
       // Delete Page
       
