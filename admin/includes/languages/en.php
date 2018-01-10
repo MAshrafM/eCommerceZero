@@ -18,7 +18,11 @@
       'LOGS' => 'Logs',
       'EDIT' => 'Edit',
       'SETTING' => 'Setting',
-      'LOGOUT' => 'Logout'
+      'LOGOUT' => 'Logout',
+      // MEMBERS
+      'EMAIL' => 'Email',
+      'FULLNAME' => 'Full Name',
+      'SAVE' => 'Save'
     );
     
     return $lang[$phrase];
