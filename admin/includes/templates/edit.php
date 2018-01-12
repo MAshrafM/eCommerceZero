@@ -18,21 +18,21 @@
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('USERLOGIN'); ?></label>
       <div class="col-sm-10">
-        <input type="text" name="username" class="form-control" autocomplete="off" value=<?php echo $row['Username']; ?> />
+        <input type="text" name="username" class="form-control" autocomplete="off" value=<?php echo $row['Username']; ?> required="required" />
       </div>
     </div>
     <!-- fullname field -->
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('FULLNAME'); ?></label>
       <div class="col-sm-10">
-        <input type="text" name="FullName" class="form-control" value=<?php echo $row['FullName']; ?> />
+        <input type="text" name="FullName" class="form-control" value=<?php echo $row['FullName']; ?> required="required" />
       </div>
     </div>
     <!-- Email field -->
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('EMAIL'); ?></label>
       <div class="col-sm-10">
-        <input type="email" name="email" class="form-control" value=<?php echo $row['Email']; ?> />
+        <input type="email" name="email" class="form-control" value=<?php echo $row['Email']; ?> required="required" />
       </div>
     </div>
     <!-- password field -->
