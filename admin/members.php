@@ -13,6 +13,9 @@
     } elseif ($v == 'Edit') {
       // Edit Page
       include $tpl.'edit.php';
+    } elseif ($v == 'Update') {
+      // Update Page
+      include $tpl.'update.php';
     } elseif($v == 'Delete') {
       // Delete Page
       

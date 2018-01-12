@@ -12,7 +12,8 @@
 
 <h1 class="text-center"><?php echo lang('EDIT').' '.lang('MEMBERS'); ?></h1>
 <div class="container">
-  <form class="form-horizontal">
+  <form class="form-horizontal" action="?v=Update" method="POST">
+    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
     <!-- username field -->
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('USERLOGIN'); ?></label>
@@ -38,7 +39,8 @@
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('PASSLOGIN'); ?></label>
       <div class="col-sm-10">
-        <input type="password" name="password" class="form-control" autocomplete="new-password" />
+        <input type="hidden" name="oldpassword" value=<?php echo $row['Password']; ?> />
+        <input type="password" name="newpassword" class="form-control" autocomplete="new-password" />
       </div>
     </div>   
     <!-- submit field -->
