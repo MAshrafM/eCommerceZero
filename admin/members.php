@@ -13,6 +13,9 @@
     elseif ($v == 'Add') {
       // Add Members
       include $tpl.'add.php';
+    } elseif ($v == 'Insert'){
+      // Insert Member to db 
+      include $tpl.'insert.php';
     } elseif ($v == 'Edit') {
       // Edit Page
       include $tpl.'edit.php';

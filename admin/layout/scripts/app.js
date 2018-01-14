@@ -13,4 +13,11 @@ $(function () {
       $(this).after('<span class="asterisk">*</span>');
     }
   });
+  // convert password field to text on hover
+  let passField = $('.password');
+  $('.show-pass').hover(function () {
+    passField.attr('type', 'text');
+  }, function () {
+    passField.attr('type', 'password');
+  });
 });
