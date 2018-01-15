@@ -22,7 +22,7 @@
       // Insert Member
       $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES(:user, :pass, :email, :fname) ");
       $stmt->execute(array(
-        'user' => $user,
+        'user' => $username,
         'pass' => $hashPass,
         'email' => $email,
         'fname' => $full
