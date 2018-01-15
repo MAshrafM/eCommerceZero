@@ -21,7 +21,7 @@
           <a href="#"><?php echo lang('ITEMS'); ?></a>
         </li>
         <li>
-          <a href="#"><?php echo lang('MEMBERS'); ?></a>
+          <a href="./members.php"><?php echo lang('MEMBERS'); ?></a>
         </li>
         <li>
           <a href="#"><?php echo lang('STATISTICS'); ?></a>

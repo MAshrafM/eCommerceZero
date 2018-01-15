@@ -9,6 +9,7 @@
     $v = isset($_GET['v']) ? $_GET['v'] : 'Manage';
     if ($v == 'Manage') {
       // Manage Page
+      include $tpl.'show.php';
     }  
     elseif ($v == 'Add') {
       // Add Members
