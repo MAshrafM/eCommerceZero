@@ -25,7 +25,7 @@
       include $tpl.'update.php';
     } elseif($v == 'Delete') {
       // Delete Page
-      
+      include $tpl.'Destroy.php';
     }
     
     include $tpl.'footer.php';

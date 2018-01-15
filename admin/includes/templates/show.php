@@ -26,7 +26,7 @@
           <td>Reg Date</td>
           <td>
           <a href="?v=Edit&uid=<?php echo $row['UserID']; ?>" class="btn btn-success">Edit</a>
-          <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger">Destroy</a>
+          <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger confirm">Destroy</a>
         </td>
         </tr> 
       <?php } ?>
