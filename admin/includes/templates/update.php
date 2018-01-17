@@ -39,5 +39,8 @@
   ?>
 </div>
 <?php 
+  } else {
+    $errorMsg = "You Can not Brows This Page Directly.";
+    redirectHome($errorMsg, 6);
   }
 ?>

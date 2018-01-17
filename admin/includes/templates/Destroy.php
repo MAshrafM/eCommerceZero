@@ -14,7 +14,10 @@
     $stmt->execute();
 ?>
     <div class="alert alert-success">Member Deleted</div>
-<?php } else { ?>
-    <div class="alert alert-danger"> Member Not Found </div>
-<?php } ?>
+<?php 
+  } else { 
+    $errorMsg = "No Member is found.";
+    redirectHome($errorMsg);
+  } 
+?>
 </div>

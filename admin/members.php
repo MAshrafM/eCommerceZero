@@ -27,10 +27,9 @@
       // Delete Page
       include $tpl.'Destroy.php';
     }
-    
-    include $tpl.'footer.php';
   } else {
-    header('Location: index.php');
-    exit();
+    $errorMsg = "Please Login.";
+    redirectHome($errorMsg);
   }
+  include $tpl.'footer.php';
 ?>

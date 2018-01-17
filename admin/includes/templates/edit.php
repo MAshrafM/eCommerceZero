@@ -54,8 +54,8 @@
 <?php 
   } else {
     // Handle Error
-    header("Location: index.php");
-    exit();
+    $errorMsg = "No User with this id exists in the database.";
+    redirectHome($errorMsg);
   }
   
 ?>
