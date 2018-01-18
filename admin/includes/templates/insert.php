@@ -19,17 +19,24 @@
   <h1 class="text-center">Update Member</h1>
   <?php 
     if(empty($formErrors)){
-      // Insert Member
-      $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES(:user, :pass, :email, :fname) ");
-      $stmt->execute(array(
-        'user' => $username,
-        'pass' => $hashPass,
-        'email' => $email,
-        'fname' => $full
-      ));
+      // check if user exists in db
+      $check = checkItem("Username", "users", $username);
+      if ($check == 1){
+        $errorCheck = "User Already Exists in db.";
+        redirectHome($errorCheck, 6);
+      } else {    
+        // Insert Member
+        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES(:user, :pass, :email, :fname) ");
+        $stmt->execute(array(
+          'user' => $username,
+          'pass' => $hashPass,
+          'email' => $email,
+          'fname' => $full
+        ));
   ?>
-    <div class="alert alert-success">Member Added</div>
+        <div class="alert alert-success">Member Added</div>
   <?php
+      }
     } else {
     // Show Errors
   ?>

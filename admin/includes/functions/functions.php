@@ -13,6 +13,7 @@
   }
   /*
     Redirect function
+    Takes an error msg and an optional time duration before redirect.
   */
   function redirectHome($errorMsg, $seconds = 3){
     echo "
@@ -29,5 +30,16 @@
     ";
     header("refresh: $seconds; url=index.php");
     exit();
+  }
+  /*
+    Check Item Function
+    check item in db 
+  */
+  function checkItem($select, $from, $value){
+    global $db;
+    $statment = $db->prepare("SELECT $select FROM $from WHERE $select = ? ");
+    $statment->execute(array($value));
+    $count = $statment->rowCount();
+    return $count;
   }
 ?>
