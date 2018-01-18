@@ -25,12 +25,12 @@
           <td><?php echo $row['FullName']; ?></td>
           <td>Reg Date</td>
           <td>
-          <a href="?v=Edit&uid=<?php echo $row['UserID']; ?>" class="btn btn-success">Edit</a>
-          <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger confirm">Destroy</a>
+          <a href="?v=Edit&uid=<?php echo $row['UserID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+          <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i>Destroy</a>
         </td>
         </tr> 
       <?php } ?>
     </table>
   </div>
-  <a href="?v=Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Member</a>
+  <a href="?v=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Member</a>
 </div>
