@@ -21,9 +21,9 @@
       // update query
       $stmt = $db->prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
       $stmt->execute(array($username, $email, $full, $pass, $id)); 
-  ?>
-    <div class="alert alert-success">Member Updated</div>
-  <?php
+      $Msg = "<div class='alert alert-success'>Member Updated</div>";
+      redirectLink($Msg, 'back', 4);
+      
     } else {
     // Show Errors
   ?>
@@ -40,7 +40,7 @@
 </div>
 <?php 
   } else {
-    $errorMsg = "You Can not Brows This Page Directly.";
-    redirectHome($errorMsg, 6);
+    $errorMsg = "You Can not Browse This Page Directly.";
+    redirectLink($errorMsg, 6);
   }
 ?>

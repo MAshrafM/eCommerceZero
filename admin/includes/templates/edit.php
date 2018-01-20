@@ -55,7 +55,7 @@
   } else {
     // Handle Error
     $errorMsg = "No User with this id exists in the database.";
-    redirectHome($errorMsg);
+    redirectLink($errorMsg);
   }
   
 ?>

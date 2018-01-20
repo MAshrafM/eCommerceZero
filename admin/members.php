@@ -29,7 +29,7 @@
     }
   } else {
     $errorMsg = "Please Login.";
-    redirectHome($errorMsg);
+    redirectLink($errorMsg);
   }
   include $tpl.'footer.php';
 ?>

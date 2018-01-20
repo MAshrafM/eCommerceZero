@@ -23,7 +23,7 @@
       $check = checkItem("Username", "users", $username);
       if ($check == 1){
         $errorCheck = "User Already Exists in db.";
-        redirectHome($errorCheck, 6);
+        redirectLink($errorCheck, 6);
       } else {    
         // Insert Member
         $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES(:user, :pass, :email, :fname) ");
@@ -33,9 +33,8 @@
           'email' => $email,
           'fname' => $full
         ));
-  ?>
-        <div class="alert alert-success">Member Added</div>
-  <?php
+        $Msg = "<div class='alert alert-success'>Member Added</div>"
+        redirectLink($Msg, 'back', 4);
       }
     } else {
     // Show Errors
@@ -54,6 +53,6 @@
 <?php 
   } else {
     $errorMsg = "You Can not Brows This Page Directly.";
-    redirectHome($errorMsg, 6);
+    redirectLink($errorMsg, 6);
   }
 ?>
