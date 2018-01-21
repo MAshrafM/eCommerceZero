@@ -26,14 +26,14 @@
         redirectLink($errorCheck, 6);
       } else {    
         // Insert Member
-        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES(:user, :pass, :email, :fname) ");
+        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, Date) VALUES(:user, :pass, :email, :fname, now()) ");
         $stmt->execute(array(
           'user' => $username,
           'pass' => $hashPass,
           'email' => $email,
           'fname' => $full
         ));
-        $Msg = "<div class='alert alert-success'>Member Added</div>"
+        $Msg = "<div class='alert alert-success'>Member Added</div>";
         redirectLink($Msg, 'back', 4);
       }
     } else {

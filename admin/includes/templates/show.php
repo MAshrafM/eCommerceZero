@@ -23,7 +23,7 @@
           <td><?php echo $row['Username']; ?></td>
           <td><?php echo $row['Email']; ?></td>
           <td><?php echo $row['FullName']; ?></td>
-          <td>Reg Date</td>
+          <td><?php echo $row['Date']; ?></td>
           <td>
           <a href="?v=Edit&uid=<?php echo $row['UserID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
           <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i>Destroy</a>
