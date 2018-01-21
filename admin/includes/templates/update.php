@@ -40,7 +40,7 @@
 </div>
 <?php 
   } else {
-    $errorMsg = "You Can not Browse This Page Directly.";
+    $errorMsg = "<div class='alert alert-danger'>You Can not Browse This Page Directly.</div>";
     redirectLink($errorMsg, 6);
   }
 ?>

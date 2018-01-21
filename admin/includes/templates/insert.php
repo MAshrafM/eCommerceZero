@@ -22,7 +22,7 @@
       // check if user exists in db
       $check = checkItem("Username", "users", $username);
       if ($check == 1){
-        $errorCheck = "User Already Exists in db.";
+        $errorCheck = "<div class='alert alert-danger'>User Already Exists in db.</div>";
         redirectLink($errorCheck, 6);
       } else {    
         // Insert Member
@@ -52,7 +52,7 @@
 </div>
 <?php 
   } else {
-    $errorMsg = "You Can not Brows This Page Directly.";
+    $errorMsg = "<div class='alert alert-danger'>You Can not Brows This Page Directly.</div>";
     redirectLink($errorMsg, 6);
   }
 ?>

@@ -54,7 +54,7 @@
 <?php 
   } else {
     // Handle Error
-    $errorMsg = "No User with this id exists in the database.";
+    $errorMsg = "<div class='alert alert-danger'>No User with this id exists in the database.</div>";
     redirectLink($errorMsg);
   }
   
