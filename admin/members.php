@@ -9,23 +9,23 @@
     $v = isset($_GET['v']) ? $_GET['v'] : 'Manage';
     if ($v == 'Manage') {
       // Manage Page
-      include $tpl.'show.php';
+      include $memv.'show.php';
     }  
     elseif ($v == 'Add') {
       // Add Members
-      include $tpl.'add.php';
+      include $memv.'add.php';
     } elseif ($v == 'Insert'){
       // Insert Member to db 
-      include $tpl.'insert.php';
+      include $memv.'insert.php';
     } elseif ($v == 'Edit') {
       // Edit Page
-      include $tpl.'edit.php';
+      include $memv.'edit.php';
     } elseif ($v == 'Update') {
       // Update Page
-      include $tpl.'update.php';
+      include $memv.'update.php';
     } elseif($v == 'Delete') {
       // Delete Page
-      include $tpl.'Destroy.php';
+      include $memv.'Destroy.php';
     }
   } else {
     $errorMsg = "Please Login.";
