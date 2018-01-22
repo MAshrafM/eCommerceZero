@@ -94,3 +94,20 @@ body {
 .main-table button{
   padding: 3px 10px;
 }
+
+/* Dashboard */
+.home-states .stat {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 20px;
+  font-size: 1em;
+}
+
+.home-stats .stat span {
+  display: block;
+  font-size: 3.5em;
+}
+
+.latest {
+  margin-top: 40px;
+}
