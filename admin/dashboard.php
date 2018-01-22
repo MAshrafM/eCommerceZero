@@ -8,25 +8,25 @@
   <h1 class="text-center">Dashboard</h1>
   <div class="row">
     <div class="col-md-3">
-      <div class="stat">
+      <div class="stat st-members">
         Total Members
-        <span><?php echo countItems('UserID', 'users'); ?></span>
+        <span><a href="/members.php"><?php echo countItems('UserID', 'users'); ?></a></span>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="stat">
+      <div class="stat st-pending">
         Pending Members
         <span>200</span>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="stat">
+      <div class="stat st-items">
         Total Items
         <span>200</span>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="stat">
+      <div class="stat st-comments">
         Total Comments
         <span>200</span>
       </div>

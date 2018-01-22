@@ -26,7 +26,7 @@
         redirectLink($errorCheck, 6);
       } else {    
         // Insert Member
-        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, Date) VALUES(:user, :pass, :email, :fname, now()) ");
+        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, RegStatus, Date) VALUES(:user, :pass, :email, :fname, 1, now()) ");
         $stmt->execute(array(
           'user' => $username,
           'pass' => $hashPass,

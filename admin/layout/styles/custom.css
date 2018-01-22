@@ -97,15 +97,33 @@ body {
 
 /* Dashboard */
 .home-states .stat {
-  background-color: #eee;
-  border: 1px solid #ccc;
   padding: 20px;
   font-size: 1em;
+  color: #fff;
 }
 
+.home-states .stat a{
+  color: #fff;
+}
+.home-states .stat a:hover{
+  text-decoration: none;
+}
 .home-stats .stat span {
   display: block;
   font-size: 3.5em;
+}
+
+.home-states .st-members{
+  background-color: #3498db;
+}
+.home-states .st-pending{
+  background-color: #c0392b;;
+}
+.home-states .st-items{
+  background-color: #d35400;
+}
+.home-states .st-comments{
+  background-color: #8e44ad;
 }
 
 .latest {
