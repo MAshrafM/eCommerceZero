@@ -14,6 +14,7 @@
   /*
     Redirect function
     Takes a msg, a url and an optional time duration before redirect.
+    return a msg with a delay then redirect to the given url or to homepage if not.
   */
   function redirectLink($Msg, $url = null, $seconds = 3){
     if($url == null){
@@ -37,6 +38,8 @@
   /*
     Check Item Function
     check item in db 
+    Takes an item to select, and a table to be select from and the value of the selection
+    return number if an item is found
   */
   function checkItem($select, $from, $value){
     global $db;
@@ -44,5 +47,16 @@
     $statment->execute(array($value));
     $count = $statment->rowCount();
     return $count;
+  }
+  /*
+    Count number of Items
+    takes an Item to be counted and the table of the item
+    return the number of items found in that table.
+  */
+  function countItems($item, $table) {
+    $global $db;
+    $selection = $db->prepare("SELECT COUNT($item) FROM $table");
+    $selection->execute();
+    return $selection->fetchColumn();
   }
 ?>
