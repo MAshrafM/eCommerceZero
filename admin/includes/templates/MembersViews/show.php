@@ -27,6 +27,13 @@
           <td>
           <a href="?v=Edit&uid=<?php echo $row['UserID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
           <a href="?v=Delete&uid=<?php echo $row['UserID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i>Destroy</a>
+          <?php
+            if($row['RegStatus'] == 0) {
+          ?>
+          <a href="?v=Activate&uid=<?php echo $row['UserID']; ?>" class="btn btn-info activate"><i class="fa fa-close"></i>Activate</a>
+          <?php
+            }
+          ?>
         </td>
         </tr> 
       <?php } ?>

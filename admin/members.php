@@ -26,8 +26,10 @@
     } elseif($v == 'Delete') {
       // Delete Page
       include $memv.'Destroy.php';
-    }
-  } else {
+    } elseif($v == 'Activate'){
+      // Activate Pending Members
+      include $memv.'Activate.php';
+    } else {
     $errorMsg = "Please Login.";
     redirectLink($errorMsg);
   }
