@@ -1,6 +1,10 @@
 <?php 
+  $query = '';
+  if(isset($_GET['page']) && $_GET['page'] == 'Pending') {
+    $query = 'AND RegStatus = 0';
+  }
   // select all users except admins
-  $stmt = $db->prepare("SELECT * FROM users WHERE GroupID != 1");
+  $stmt = $db->prepare("SELECT * FROM users WHERE GroupID != 1 $query");
   $stmt->execute();
   $rows = $stmt->fetchAll();
 ?>

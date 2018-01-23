@@ -16,7 +16,7 @@
     <div class="col-md-3">
       <div class="stat st-pending">
         Pending Members
-        <span>200</span>
+        <span><a href="/members.php?v=Manage&page=Pending">200</a></span>
       </div>
     </div>
     <div class="col-md-3">
