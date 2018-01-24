@@ -3,6 +3,8 @@
   include 'init.php';
   if(isset($_SESSION['Username'])){
   // Dashboard
+  
+  $latestUsers = getLatest("*", "users", "UserID");
 ?>
 <div class="container home-stats text-center">
   <h1 class="text-center">Dashboard</h1>
@@ -41,7 +43,15 @@
           <i class="fa fa-users"></i> Latest Registered Users.
         </div>
         <div class="panel-body">
-          TO DO 
+          <ul>
+            <?php 
+              foreach ($latestUsers as $user){
+            ?>
+              <li><?php echo $user['Username']; ?></li>
+            <?php
+              }
+            ?>
+          </ul>
         </div>
       </div>
     </div>

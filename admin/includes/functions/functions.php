@@ -59,4 +59,15 @@
     $selection->execute();
     return $selection->fetchColumn();
   }
+  /*
+    Get Latest Records.
+    select a field from a table with a limit number of records
+  */
+  function getLatest($select, $table, $order, $limit = 5){
+    $global $db;
+    $latest = $db->prepare("SELECT $select From $table ORDER BY $order DESC LIMIT $limit");
+    $latest->execute();
+    $rows = $latest->fetchAll();
+    return $rows;
+  }
 ?>
