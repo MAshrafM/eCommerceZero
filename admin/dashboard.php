@@ -43,11 +43,30 @@
           <i class="fa fa-users"></i> Latest Registered Users.
         </div>
         <div class="panel-body">
-          <ul>
+          <ul class="list-unstyled latest-users">
             <?php 
               foreach ($latestUsers as $user){
             ?>
-              <li><?php echo $user['Username']; ?></li>
+              <li>
+                <?php echo $user['Username']; ?> 
+                <a href="/members.php?v=Edit&uid=<?php echo $user['UserID']; ?>">
+                  <span class="btn btn-primary pull-right">
+                    <i class="fa fa-edit"></i> 
+                      Edit
+                  </span>
+                </a>
+                <?php
+                  if($user['RegStatus'] == 0) {
+                ?>
+                  <a href="?v=Activate&uid=<?php echo $user['UserID']; ?>">
+                    <span class="btn btn-info pull-right">
+                      <i class="fa fa-check"></i> Activate
+                    </span>
+                  </a>
+                <?php
+                  }
+                ?>                
+              </li>
             <?php
               }
             ?>

@@ -34,7 +34,7 @@
           <?php
             if($row['RegStatus'] == 0) {
           ?>
-          <a href="?v=Activate&uid=<?php echo $row['UserID']; ?>" class="btn btn-info activate"><i class="fa fa-close"></i>Activate</a>
+          <a href="?v=Activate&uid=<?php echo $row['UserID']; ?>" class="btn btn-info activate"><i class="fa fa-check"></i>Activate</a>
           <?php
             }
           ?>

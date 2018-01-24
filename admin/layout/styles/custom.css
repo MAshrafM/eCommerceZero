@@ -129,3 +129,21 @@ body {
 .latest {
   margin-top: 40px;
 }
+
+.latest-users {
+  margin-bottom: 0;
+}
+
+.latest-users li {
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.latest-users li:nth-child(even){
+  background-color: #eee;
+}
+
+.latest-users .btn {
+  padding: 2px 8px;
+  margin-right: 5px;
+}
