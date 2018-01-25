@@ -4,6 +4,7 @@
   // Routes
   $tpl = "includes/templates/"; // template dir
   $memv = "includes/templates/MembersViews/"; // member views templates
+  $cat = "includes/templates/CategoriesViews/"; // category views templates
   $styles = "layout/styles/"; // styles dir
   $scripts = "layout/scripts/"; // scripts dir
   $lang = "includes/languages/"; // lang dir

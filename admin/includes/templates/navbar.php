@@ -15,7 +15,7 @@
           <a href="./dashboard.php"><?php echo lang('HOME'); ?></a>
         </li>
         <li>
-          <a href="#"><?php echo lang('CAT'); ?></a>
+          <a href="./categories.php"><?php echo lang('CAT'); ?></a>
         </li>
         <li>
           <a href="#"><?php echo lang('ITEMS'); ?></a>
