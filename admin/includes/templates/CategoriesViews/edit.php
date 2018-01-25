@@ -14,7 +14,7 @@
 <h1 class="text-center">Edit Category</h1>
 <div class="container">
   <form class="form-horizontal" action="?v=Update" method="POST">
-    <input type="hidden" name="userid" value="<?php echo $catid; ?>" />
+    <input type="hidden" name="catid" value="<?php echo $catid; ?>" />
     <!-- name field -->
     <div class="form-group">
       <label class="col-sm-2 control-label">Name</label>
