@@ -1,48 +1,83 @@
 <?php
   // Check user id exists and is numeric
-  $userid = isset($_GET['uid']) && is_numeric($_GET['uid']) ? intval($_GET['uid']) : 0;
+  $catid = isset($_GET['cid']) && is_numeric($_GET['cid']) ? intval($_GET['cid']) : 0;
   // Get record from db
-  $stmt = $db->prepare("SELECT * FROM users WHERE UserID = ?");
-  $stmt->execute(array($userid));
+  $stmt = $db->prepare("SELECT * FROM categories WHERE ID = ?");
+  $stmt->execute(array($catid));
   $row = $stmt->fetch();
   $count = $stmt->rowCount();
+  
   // if exists view edit page
   if($count > 0) {
 ?>
 
-<h1 class="text-center"><?php echo lang('EDIT').' '.lang('MEMBERS'); ?></h1>
+<h1 class="text-center">Edit Category</h1>
 <div class="container">
   <form class="form-horizontal" action="?v=Update" method="POST">
-    <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
-    <!-- username field -->
+    <input type="hidden" name="userid" value="<?php echo $catid; ?>" />
+    <!-- name field -->
     <div class="form-group">
-      <label class="col-sm-2 control-label"><?php echo lang('USERLOGIN'); ?></label>
+      <label class="col-sm-2 control-label">Name</label>
       <div class="col-sm-10">
-        <input type="text" name="username" class="form-control" autocomplete="off" value=<?php echo $row['Username']; ?> required="required" />
+        <input type="text" name="name" class="form-control" autocomplete="off" required="required" value="<?php echo $row['Name']; ?>" />
       </div>
     </div>
-    <!-- fullname field -->
+    <!-- Description field -->
     <div class="form-group">
-      <label class="col-sm-2 control-label"><?php echo lang('FULLNAME'); ?></label>
+      <label class="col-sm-2 control-label">Description</label>
       <div class="col-sm-10">
-        <input type="text" name="FullName" class="form-control" value=<?php echo $row['FullName']; ?> required="required" />
+        <textarea type="text" name="description" class="form-control"><?php echo $row['Description']; ?></textarea>
       </div>
     </div>
-    <!-- Email field -->
+    <!-- Ordering field -->
     <div class="form-group">
-      <label class="col-sm-2 control-label"><?php echo lang('EMAIL'); ?></label>
+      <label class="col-sm-2 control-label">Ordering</label>
       <div class="col-sm-10">
-        <input type="email" name="email" class="form-control" value=<?php echo $row['Email']; ?> required="required" />
+        <input type="text" name="ordering" class="form-control" value="<?php echo $row['Ordering']; ?>"/>
       </div>
     </div>
-    <!-- password field -->
+    <!-- Visible field -->
     <div class="form-group">
-      <label class="col-sm-2 control-label"><?php echo lang('PASSLOGIN'); ?></label>
+      <label class="col-sm-2 control-label">Visible</label>
       <div class="col-sm-10">
-        <input type="hidden" name="oldpassword" value=<?php echo $row['Password']; ?> />
-        <input type="password" name="newpassword" class="form-control" autocomplete="new-password" />
+        <div>
+          <input id="vis-yes" type="radio" name="visible" value="0" <?php echo $row['Visibility'] == '0' ? 'checked' : ''; ?> />
+          <label for="vis-yes">Yes</label>
+        </div>
+        <div>
+          <input id="vis-no" type="radio" name="visible" value="1" <?php echo $row['Visibility'] == '1' ? 'checked' : ''; ?>/>
+          <label for="vis-no">No</label>
+        </div>
       </div>
-    </div>   
+    </div> 
+    <!-- Visible field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Allow Comments</label>
+      <div class="col-sm-10">
+        <div>
+          <input id="com-yes" type="radio" name="commenting" value="0" <?php echo $row['Allow_Comment'] == '0' ? 'checked' : ''; ?> />
+          <label for="com-yes">Yes</label>
+        </div>
+        <div>
+          <input id="com-no" type="radio" name="commenting" value="1" <?php echo $row['Allow_Comment'] == '1' ? 'checked' : ''; ?>/>
+          <label for="com-no">No</label>
+        </div>
+      </div>
+    </div>  
+    <!-- Visible field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Allow Ads</label>
+      <div class="col-sm-10">
+        <div>
+          <input id="ads-yes" type="radio" name="ads" value="0" <?php echo $row['Allow_Ads'] == '0' ? 'checked' : ''; ?> />
+          <label for="ads-yes">Yes</label>
+        </div>
+        <div>
+          <input id="ads-no" type="radio" name="ads" value="1" <?php echo $row['Allow_Ads'] == '1' ? 'checked' : ''; ?>/>
+          <label for="ads-no">No</label>
+        </div>
+      </div>
+    </div> 
     <!-- submit field -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
@@ -54,7 +89,7 @@
 <?php 
   } else {
     // Handle Error
-    $errorMsg = "<div class='alert alert-danger'>No User with this id exists in the database.</div>";
+    $errorMsg = "<div class='alert alert-danger'>No Category with this id exists in the database.</div>";
     redirectLink($errorMsg);
   }
   
