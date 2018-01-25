@@ -1,39 +1,37 @@
 <?php
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // get var from form
-    $username = $_POST['username'];
-    $full = $_POST['FullName'];
-    $email = $_POST['email'];
-    $pass = $_POST['password'];
-    $hashPass = sha1($pass);
+    $name = $_POST['name'];
+    $desc = $_POST['description'];
+    $ordering = $_POST['ordering'];
+    $vis = $_POST['visible'];
+    $com = $_POST['commenting'];
+    $ads = $_POST['ads'];
     // validate form
     $formErrors = array();
-    if(empty($username)){$formErrors[] = 'Username can not be empty';}
-    if(empty($full)){$formErrors[] = 'Full Name can not be empty';}
-    if(empty($email)){$formErrors[] = 'Email can not be empty';}
-    if(empty($pass)){$formErrors[] = 'Password can not be empty';}
-    if(strlen($username) < 4){$formErrors[] = 'Username must be larger than 4 characters';}
-    if(strlen($username) > 20){$formErrors[] = 'Username must be less than 20 characters';}
+    if(empty($name)){$formErrors[] = 'Category Name can not be empty';}
 ?>
 <div class="container">
-  <h1 class="text-center">Update Member</h1>
+  <h1 class="text-center">Update Category</h1>
   <?php 
     if(empty($formErrors)){
-      // check if user exists in db
-      $check = checkItem("Username", "users", $username);
+      // check if category exists in db
+      $check = checkItem("Name", "categories", $name);
       if ($check == 1){
-        $errorCheck = "<div class='alert alert-danger'>User Already Exists in db.</div>";
+        $errorCheck = "<div class='alert alert-danger'>Category Already Exists in db.</div>";
         redirectLink($errorCheck, 6);
       } else {    
-        // Insert Member
-        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, RegStatus, Date) VALUES(:user, :pass, :email, :fname, 1, now()) ");
+        // Insert Category
+        $stmt = $db->prepare("INSERT INTO categories(Name, Description, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:name, :desc, :ordering, :vis, :com, :ads) ");
         $stmt->execute(array(
-          'user' => $username,
-          'pass' => $hashPass,
-          'email' => $email,
-          'fname' => $full
+          'name' => $name,
+          'desc' => $desc,
+          'ordering' => $ordering,
+          'vis' => $vis,
+          'com' => $com,
+          'ads' => $ads
         ));
-        $Msg = "<div class='alert alert-success'>Member Added</div>";
+        $Msg = "<div class='alert alert-success'>Category Added</div>";
         redirectLink($Msg, 'back', 4);
       }
     } else {
