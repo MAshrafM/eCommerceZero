@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><?php echo lang('BRAND'); ?></a>
+      <a class="navbar-brand" href="./"><?php echo lang('BRAND'); ?></a>
     </div>
     <div class="collapse navbar-collapse" id="navcollapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="/dashboard.php"><?php echo lang('HOME'); ?></a>
+          <a href="./dashboard.php"><?php echo lang('HOME'); ?></a>
         </li>
         <li>
           <a href="#"><?php echo lang('CAT'); ?></a>

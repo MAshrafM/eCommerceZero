@@ -54,7 +54,7 @@
     return the number of items found in that table.
   */
   function countItems($item, $table) {
-    $global $db;
+    global $db;
     $selection = $db->prepare("SELECT COUNT($item) FROM $table");
     $selection->execute();
     return $selection->fetchColumn();
@@ -64,7 +64,7 @@
     select a field from a table with a limit number of records
   */
   function getLatest($select, $table, $order, $limit = 5){
-    $global $db;
+    global $db;
     $latest = $db->prepare("SELECT $select From $table ORDER BY $order DESC LIMIT $limit");
     $latest->execute();
     $rows = $latest->fetchAll();

@@ -29,7 +29,8 @@
     } elseif($v == 'Activate'){
       // Activate Pending Members
       include $memv.'Activate.php';
-    } else {
+    }
+  } else {
     $errorMsg = "Please Login.";
     redirectLink($errorMsg);
   }

@@ -12,13 +12,13 @@
     <div class="col-md-3">
       <div class="stat st-members">
         Total Members
-        <span><a href="/members.php"><?php echo countItems('UserID', 'users'); ?></a></span>
+        <span><a href="./members.php"><?php echo countItems('UserID', 'users'); ?></a></span>
       </div>
     </div>
     <div class="col-md-3">
       <div class="stat st-pending">
         Pending Members
-        <span><a href="/members.php?v=Manage&page=Pending"><?php echo checkItems('RegStatus', 'users', 0); ?></a></span>
+        <span><a href="./members.php?v=Manage&page=Pending"><?php echo checkItem('RegStatus', 'users', 0); ?></a></span>
       </div>
     </div>
     <div class="col-md-3">
@@ -49,7 +49,7 @@
             ?>
               <li>
                 <?php echo $user['Username']; ?> 
-                <a href="/members.php?v=Edit&uid=<?php echo $user['UserID']; ?>">
+                <a href="./members.php?v=Edit&uid=<?php echo $user['UserID']; ?>">
                   <span class="btn btn-primary pull-right">
                     <i class="fa fa-edit"></i> 
                       Edit
@@ -58,7 +58,7 @@
                 <?php
                   if($user['RegStatus'] == 0) {
                 ?>
-                  <a href="?v=Activate&uid=<?php echo $user['UserID']; ?>">
+                  <a href="./members.php?v=Activate&uid=<?php echo $user['UserID']; ?>">
                     <span class="btn btn-info pull-right">
                       <i class="fa fa-check"></i> Activate
                     </span>
