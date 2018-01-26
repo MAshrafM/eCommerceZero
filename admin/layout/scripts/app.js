@@ -24,4 +24,19 @@ $(function () {
   $('.confirm').click(function () {
     return confirm('Are You Sure?');
   });
+  // change view
+  $('.view-option span').click(function () {
+    $(this).addClass('active').siblings('span').removeClass('active');
+    if($(this).data('view') === 'grid'){
+      $('.view-table').fadeOut('slow', function (){
+        $('.view-grid').fadeIn('slow');
+      });
+    }
+    
+    if($(this).data('view') === 'table'){
+      $('.view-grid').fadeOut('slow', function (){
+        $('.view-table').fadeIn('slow');
+      });
+    }
+  });
 });

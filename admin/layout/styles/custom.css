@@ -156,3 +156,32 @@ body {
   padding: 2px 8px;
   margin-right: 5px;
 }
+
+.tag-r, .tag-y, .tag-b{
+  font-size: .75em;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 3px;
+}
+.tag-r{
+  background-color: #c0392b;
+}
+.tag-y{
+  background-color: #FFB61E;
+}
+.tag-b {
+  background-color: #19B5FE;
+}
+
+.view-option span{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.view-option span.active{
+  color: #19B5FE;
+}
+
+.view-grid{
+  display: none;
+}

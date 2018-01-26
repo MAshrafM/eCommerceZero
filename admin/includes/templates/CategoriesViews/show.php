@@ -1,5 +1,6 @@
 <?php 
   $sort = 'ASC';
+  $view = 'grid';
   $sort_array = array('ASC', 'DESC');
   if(isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)) {
     $sort = $_GET['sort'];
@@ -12,6 +13,16 @@
 
 <h1 class="text-center">Manage Categories</h1>
 <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="view-option pull-right">
+        <span data-view='table' class="glyphicon glyphicon-th-list active"></span> 
+        <span data-view='grid'class="glyphicon glyphicon-th-large"></span>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="view-table">
   <div class="table-responsive text-center">
     <table class="main-table table table-bordered">
       <tr>
@@ -53,6 +64,43 @@
         </tr> 
       <?php } ?>
     </table>
+  </div>
+  </div>
+  <div class="view-grid">
+    <div class="row">
+      <?php foreach($rows as $row) { ?>
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <?php echo $row['Name']; ?>
+            </div>
+            <div class="panel-body">
+              <?php if($row['Description'] == '') {
+                echo 'No Description for this category';
+              } else {
+              ?>
+              
+                <p><?php echo $row['Description']; ?></p>
+              <?php
+              }
+              ?>
+            </div>
+            <div class="panel-footer">
+                <div class="pull-left">
+                  <?php echo $row['Visibility'] ? "<span class='tag-r'>Hidden</span>" : ''; ?>
+                  <?php echo $row['Allow_Comment'] ? "<span class='tag-y'>Comment Disabled</span>" : ''; ?>
+                  <?php echo $row['Allow_Ads'] ? "<span class='tag-b'>Ads Disabled</span>" : ''; ?>
+                </div>
+                <div class="pull-right">
+                  <a href="?v=Edit&cid=<?php echo $row['ID']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="?v=Delete&cid=<?php echo $row['ID']; ?>" class="btn btn-danger btn-sm confirm"><i class="fa fa-close"></i> Destroy</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+    </div>
   </div>
   <a href="?v=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Category</a>
 </div>
