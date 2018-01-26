@@ -1,6 +1,11 @@
 <?php 
+  $sort = 'ASC';
+  $sort_array = array('ASC', 'DESC');
+  if(isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)) {
+    $sort = $_GET['sort'];
+  }
   // select all users except admins
-  $stmt = $db->prepare("SELECT * FROM categories");
+  $stmt = $db->prepare("SELECT * FROM categories ORDER BY Ordering $sort");
   $stmt->execute();
   $rows = $stmt->fetchAll();
 ?>
@@ -13,7 +18,19 @@
         <th>#ID</th>
         <th>Category</th>
         <th>Description</th>
-        <th>Order</th>
+        <th>
+          <?php 
+            if($sort == 'ASC'){
+          ?>
+              <a href="?sort=DESC">Order <span class="caret"></span></a>
+          <?php
+            } else {
+          ?>
+              <a class="dropup" href="?sort=ASC">Order <span class="caret"></span></a>
+          <?php
+            }
+          ?>
+        </th>
         <th>Visible</th>
         <th>Comment</th>
         <th>Ads</th>

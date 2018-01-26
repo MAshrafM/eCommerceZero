@@ -86,6 +86,13 @@ body {
   text-align: center;
 }
 
+.main-table th a{
+  color: #fff;
+}
+.main-table th a:hover{
+  text-decoration: none;
+}
+
 .main-table td{
   background-color: #fff;
   vertical-align: middle !important;
