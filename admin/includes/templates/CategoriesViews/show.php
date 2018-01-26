@@ -1,7 +1,6 @@
 <?php 
-  $sort = 'ASC';
-  $view = 'grid';
-  $sort_array = array('ASC', 'DESC');
+  $sort = 'asc';
+  $sort_array = array('asc', 'desc');
   if(isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)) {
     $sort = $_GET['sort'];
   }
@@ -31,13 +30,13 @@
         <th>Description</th>
         <th>
           <?php 
-            if($sort == 'ASC'){
+            if($sort == 'asc'){
           ?>
-              <a href="?sort=DESC">Order <span class="caret"></span></a>
+              <a href="?sort=desc">Order <span class="caret"></span></a>
           <?php
             } else {
           ?>
-              <a class="dropup" href="?sort=ASC">Order <span class="caret"></span></a>
+              <a class="dropup" href="?sort=asc">Order <span class="caret"></span></a>
           <?php
             }
           ?>
@@ -72,7 +71,7 @@
         <div class="col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <?php echo $row['Name']; ?>
+              <i class="fa fa-tag"></i> <?php echo $row['Name']; ?>
             </div>
             <div class="panel-body">
               <?php if($row['Description'] == '') {
