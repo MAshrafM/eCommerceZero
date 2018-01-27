@@ -6,6 +6,8 @@
     <title><?php getTitle(); ?></title>
     <link rel="stylesheet" href="<?php echo $styles; ?>bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo $styles; ?>font-awesome.min.css" />
+    <link rel="stylesheet" href="<?php echo $styles; ?>jquery-ui.min.css" />
+    <link rel="stylesheet" href="<?php echo $styles; ?>jquery.selectBoxIt.css" />
     <link rel="stylesheet" href="<?php echo $styles; ?>custom.css" />
   </head>
   <body>
