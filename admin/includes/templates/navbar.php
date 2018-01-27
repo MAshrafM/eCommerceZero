@@ -18,7 +18,7 @@
           <a href="./categories.php"><?php echo lang('CAT'); ?></a>
         </li>
         <li>
-          <a href="#"><?php echo lang('ITEMS'); ?></a>
+          <a href="./items.php"><?php echo lang('ITEMS'); ?></a>
         </li>
         <li>
           <a href="./members.php"><?php echo lang('MEMBERS'); ?></a>
