@@ -42,6 +42,40 @@
         </select>
       </div>
     </div>
+    <!-- Member field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Members</label>
+      <div class="col-sm-10">
+        <select name="member">
+          <option value="0">...</option>
+          <?php 
+            $stmt = $db->prepare("SELECT UserID, Username from users");
+            $stmt->execute();
+            $users = $stmt->fetchAll();
+            forEach($users as $user){
+              echo "<option value=". $user['UserID'] .">".$user['Username'] ."</option>"
+            }
+          ?>
+        </select>
+      </div>
+    </div>
+    <!-- Category field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Category</label>
+      <div class="col-sm-10">
+        <select name="member">
+          <option value="0">...</option>
+          <?php 
+            $stmtc = $db->prepare("SELECT ID, Name from categories");
+            $stmtc->execute();
+            $categories = $stmtc->fetchAll();
+            forEach($categories as $category){
+              echo "<option value=". $category['ID'] .">".$category['Name'] ."</option>"
+            }
+          ?>
+        </select>
+      </div>
+    </div>
     <!-- submit field -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
