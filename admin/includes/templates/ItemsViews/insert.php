@@ -6,6 +6,8 @@
     $price = $_POST['price'];
     $country = $_POST['country'];
     $status = $_POST['status'];
+    $mem = $_POST['member'];
+    $catid = $_POST['category'];
     // validate form
     $formErrors = array();
     if(empty($name)){$formErrors[] = 'Item Name can not be empty';}
@@ -18,13 +20,15 @@
   <?php 
     if(empty($formErrors)){  
       // Insert Category
-      $stmt = $db->prepare("INSERT INTO items(Name, Description, Price, Country_Made, Status, Add_Date) VALUES(:name, :desc, :price, :country, :status, now()) ");
+      $stmt = $db->prepare("INSERT INTO items(Name, Description, Price, Country_Made, Status, Add_Date, Member_ID, Cat_ID) VALUES(:name, :desc, :price, :country, :status, now(), :mem, :catid) ");
       $stmt->execute(array(
         'name' => $name,
         'desc' => $desc,
         'price' => $price,
         'country' => $country,
-        'status' => $status
+        'status' => $status,
+        'mem' => $mem,
+        'catid' => $catid
       ));
       $Msg = "<div class='alert alert-success'>Item Added</div>";
       redirectLink($Msg, 'back', 4);
