@@ -53,7 +53,7 @@
             $stmt->execute();
             $users = $stmt->fetchAll();
             forEach($users as $user){
-              echo "<option value=". $user['UserID'] .">".$user['Username'] ."</option>"
+              echo "<option value=". $user['UserID'] .">".$user['Username'] ."</option>";
             }
           ?>
         </select>
@@ -70,7 +70,7 @@
             $stmtc->execute();
             $categories = $stmtc->fetchAll();
             forEach($categories as $category){
-              echo "<option value=". $category['ID'] .">".$category['Name'] ."</option>"
+              echo "<option value=". $category['ID'] .">".$category['Name'] ."</option>";
             }
           ?>
         </select>
