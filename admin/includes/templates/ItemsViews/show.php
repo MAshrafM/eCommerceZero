@@ -75,6 +75,10 @@
               ?>
             </div>
             <div class="panel-footer">
+                <div class="pull-left">
+                  <span class="tag-r"><?php echo $row['Cat_Name']; ?></span>   
+                  <span class="tag-y"><?php echo $row['Member_Name']; ?></span>
+                </div>
                 <div class="pull-right">
                   <a href="?v=Edit&cid=<?php echo $row['ID']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
                   <a href="?v=Delete&cid=<?php echo $row['ID']; ?>" class="btn btn-danger btn-sm confirm"><i class="fa fa-close"></i> Destroy</a>
