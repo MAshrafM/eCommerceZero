@@ -1,6 +1,14 @@
 <?php 
   // select all users except admins
-  $stmt = $db->prepare("SELECT * FROM items");
+  $stmt = $db->prepare("
+        SELECT 
+          items.*,
+          categories.Name AS Cat_Name,
+          users.Username AS Member_Name 
+        FROM items 
+        INNER JOIN categories ON categories.ID = items.Cat_ID 
+        INNER JOIN users ON users.UserID = items.Member_ID"
+  );
   $stmt->execute();
   $rows = $stmt->fetchAll();
 ?>
@@ -25,6 +33,8 @@
         <th>Description</th>
         <th>Price</th>
         <th>Date</th>
+        <th>Category</th>
+        <th>User</th>
         <th>Control</th>
       </tr>
       <?php foreach($rows as $row) { ?>
@@ -34,6 +44,8 @@
           <td><?php echo $row['Description']; ?></td>
           <td><?php echo $row['Price']; ?></td>
           <td><?php echo $row['Add_Date']; ?></td>
+          <td><?php echo $row['Cat_Name']; ?></td>
+          <td><?php echo $row['Member_Name']; ?></td>
           <td>
             <a href="?v=Edit&cid=<?php echo $row['ID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
             <a href="?v=Delete&cid=<?php echo $row['ID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i> Destroy</a>
