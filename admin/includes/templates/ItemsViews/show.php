@@ -47,8 +47,8 @@
           <td><?php echo $row['Cat_Name']; ?></td>
           <td><?php echo $row['Member_Name']; ?></td>
           <td>
-            <a href="?v=Edit&cid=<?php echo $row['ID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
-            <a href="?v=Delete&cid=<?php echo $row['ID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i> Destroy</a>
+            <a href="?v=Edit&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
+            <a href="?v=Delete&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i> Destroy</a>
           </td>
         </tr> 
       <?php } ?>
@@ -80,8 +80,8 @@
                   <span class="tag-y"><?php echo $row['Member_Name']; ?></span>
                 </div>
                 <div class="pull-right">
-                  <a href="?v=Edit&cid=<?php echo $row['ID']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                  <a href="?v=Delete&cid=<?php echo $row['ID']; ?>" class="btn btn-danger btn-sm confirm"><i class="fa fa-close"></i> Destroy</a>
+                  <a href="?v=Edit&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                  <a href="?v=Delete&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-danger btn-sm confirm"><i class="fa fa-close"></i> Destroy</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
