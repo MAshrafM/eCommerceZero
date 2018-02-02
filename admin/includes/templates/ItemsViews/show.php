@@ -1,4 +1,8 @@
 <?php 
+  $query = '';
+  if(isset($_GET['page']) && $_GET['page'] == 'Approve') {
+    $query = 'AND Approve = 0';
+  }
   // select all users except admins
   $stmt = $db->prepare("
         SELECT 
@@ -49,6 +53,13 @@
           <td>
             <a href="?v=Edit&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-success"><i class="fa fa-edit"></i> Edit</a>
             <a href="?v=Delete&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-danger confirm"><i class="fa fa-close"></i> Destroy</a>
+            <?php
+            if($row['Approve'] == 0) {
+          ?>
+          <a href="?v=Approve&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-info activate"><i class="fa fa-check"></i> Approve</a>
+          <?php
+            }
+          ?>
           </td>
         </tr> 
       <?php } ?>
@@ -65,7 +76,7 @@
             </div>
             <div class="panel-body">
               <?php if($row['Description'] == '') {
-                echo 'No Description for this category';
+                echo 'No Description for this item';
               } else {
               ?>
               
@@ -82,6 +93,13 @@
                 <div class="pull-right">
                   <a href="?v=Edit&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
                   <a href="?v=Delete&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-danger btn-sm confirm"><i class="fa fa-close"></i> Destroy</a>
+                  <?php
+                    if($row['Approve'] == 0) {
+                  ?>
+                  <a href="?v=Approve&tid=<?php echo $row['Item_ID']; ?>" class="btn btn-info btn-sm activate"><i class="fa fa-check"></i> Approve</a>
+                  <?php
+                    }
+                  ?>
                 </div>
                 <div class="clearfix"></div>
             </div>
