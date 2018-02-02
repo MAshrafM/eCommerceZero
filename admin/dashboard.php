@@ -5,6 +5,7 @@
   // Dashboard
   
   $latestUsers = getLatest("*", "users", "UserID");
+  $latestItems = getLatest("*", "items", "Item_ID")
 ?>
 <div class="container home-stats text-center">
   <h1 class="text-center">Dashboard</h1>
@@ -81,7 +82,34 @@
           <i class="fa fa-tag"></i> Latest Items.
         </div>
         <div class="panel-body">
-          TO DO 
+          <ul class="list-unstyled latest-users">
+            <?php 
+              foreach ($latestItems as $item){
+            ?>
+              <li>
+                <?php echo $item['Name']; ?> 
+                <a href="./items.php?v=Edit&tid=<?php echo $item['Item_ID']; ?>">
+                  <span class="btn btn-primary pull-right">
+                    <i class="fa fa-edit"></i> 
+                      Edit
+                  </span>
+                </a>
+                <?php
+                  if($item['Approve'] == 0) {
+                ?>
+                  <a href="./items.php?v=Approve&tid=<?php echo $item['ItemID']; ?>">
+                    <span class="btn btn-info pull-right">
+                      <i class="fa fa-check"></i> Aprrove
+                    </span>
+                  </a>
+                <?php
+                  }
+                ?>                
+              </li>
+            <?php
+              }
+            ?>
+          </ul>
         </div>
       </div>
     </div>

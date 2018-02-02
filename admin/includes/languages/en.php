@@ -14,6 +14,7 @@
       'CAT' => 'Categories',
       'ITEMS' => 'Items',
       'MEMBERS' => 'Members',
+      'COMMENTS' => 'Comments',
       'STATISTICS' => 'Statistics',
       'LOGS' => 'Logs',
       'EDIT' => 'Edit',
