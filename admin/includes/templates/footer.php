@@ -1,4 +1,5 @@
-
+    
+    </main>
     <footer class="well text-center">
       <div class="container">
         <p>eCommerce Shop with ElZero. 2018 &copy; MAshraf.</p>
