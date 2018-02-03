@@ -198,3 +198,8 @@ footer.well {
   position: relative;
   bottom: 0;
 }
+
+footer p{
+  font-weight: bold;
+  font-style: italic;
+}
