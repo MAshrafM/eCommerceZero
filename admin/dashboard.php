@@ -54,6 +54,9 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa fa-users"></i> Latest Registered Users.
+          <span class="toggle-info pull-right">
+            <i class="fa fa-plus fa-lg"></i>
+          </span>
         </div>
         <div class="panel-body">
           <ul class="list-unstyled latest-users">
@@ -92,6 +95,9 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa fa-tag"></i> Latest Items.
+          <span class="toggle-info pull-right">
+            <i class="fa fa-plus fa-lg"></i>
+          </span>
         </div>
         <div class="panel-body">
           <ul class="list-unstyled latest-users">

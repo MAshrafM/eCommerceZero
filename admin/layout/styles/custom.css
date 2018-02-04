@@ -152,6 +152,13 @@ body {
   margin-top: 40px;
 }
 
+.latest .toggle-info{
+  color: #999;
+  cursor: pointer;
+}
+.latest .toggle-info:hover{
+  color: #444;
+}
 .latest-users {
   margin-bottom: 0;
 }
