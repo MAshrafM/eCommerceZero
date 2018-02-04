@@ -12,26 +12,38 @@
   <div class="row">
     <div class="col-md-3">
       <div class="stat st-members">
-        Total Members
-        <span><a href="./members.php"><?php echo countItems('UserID', 'users'); ?></a></span>
+        <i class="fa fa-users"></i>
+        <div class="info">
+          Total Members
+          <span><a href="./members.php"><?php echo countItems('UserID', 'users'); ?></a></span>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="stat st-pending">
-        Pending Members
-        <span><a href="./members.php?v=Manage&page=Pending"><?php echo checkItem('RegStatus', 'users', 0); ?></a></span>
+        <i class="fa fa-plus"></i>
+        <div class="info">
+          Pending Members
+          <span><a href="./members.php?v=Manage&page=Pending"><?php echo checkItem('RegStatus', 'users', 0); ?></a></span>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="stat st-items">
-        Total Items
-        <span><a href="./items.php"><?php echo countItems('Item_ID', 'items'); ?></a></span>
+        <i class="fa fa-tag"></i>
+        <div class="info">
+          Total Items
+          <span><a href="./items.php"><?php echo countItems('Item_ID', 'items'); ?></a></span>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="stat st-comments">
-        Total Comments
-        <span>200</span>
+        <i class="fa fa-comments"></i>
+        <div class="info">
+          Total Comments
+          <span>200</span>
+        </div>
       </div>
     </div>
   </div>
