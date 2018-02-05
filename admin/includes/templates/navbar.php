@@ -24,7 +24,7 @@
           <a href="./members.php"><?php echo lang('MEMBERS'); ?></a>
         </li>
         <li>
-          <a href="#"><?php echo lang('COMMENTS'); ?></a>
+          <a href="./comments.php"><?php echo lang('COMMENTS'); ?></a>
         </li>
         <li>
           <a href="#"><?php echo lang('STATISTICS'); ?></a>

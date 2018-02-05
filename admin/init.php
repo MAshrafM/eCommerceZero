@@ -6,6 +6,7 @@
   $memv = "includes/templates/MembersViews/"; // member views templates
   $cat = "includes/templates/CategoriesViews/"; // category views templates
   $item = "includes/templates/ItemsViews/"; // Item views templates
+  $com = "includes/templates/CommentsViews/"; // Comment views templates
   $styles = "layout/styles/"; // styles dir
   $scripts = "layout/scripts/"; // scripts dir
   $lang = "includes/languages/"; // lang dir
