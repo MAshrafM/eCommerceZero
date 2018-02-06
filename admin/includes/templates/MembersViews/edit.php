@@ -52,6 +52,12 @@
   </form>
 </div>
 <?php 
+  $count = checkItem('uID', 'comments', $userid);
+  if($count > 0) {
+    include $com.'show.php';
+  }
+?>
+<?php 
   } else {
     // Handle Error
     $errorMsg = "<div class='alert alert-danger'>No User with this id exists in the database.</div>";

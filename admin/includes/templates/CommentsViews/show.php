@@ -1,7 +1,11 @@
 <?php 
   $query = '';
   if(isset($_GET['page']) && $_GET['page'] == 'Pending') {
-    $query = 'AND Status = 0';
+    $query = 'WHERE Status = 0';
+  } elseif (isset($_GET['tid']) && is_numeric($_GET['tid'])) {
+    $query = 'WHERE tID = '. $_GET['tid'];
+  } elseif (isset($_GET['uid']) && is_numeric($_GET['uid'])) {
+    $query = 'WHERE uID = '. $_GET['uid'];
   }
   // select all users except admins
   $stmt = $db->prepare("SELECT comments.*, items.Name AS ItemName, users.Username AS UserName FROM comments

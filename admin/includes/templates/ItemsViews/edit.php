@@ -100,6 +100,12 @@
   </form>
 </div>
 <?php 
+  $count = checkItem('tID', 'comments', $itemid);
+  if($count > 0) {
+    include $com.'show.php';
+  }
+?>
+<?php 
   } else {
     // Handle Error
     $errorMsg = "<div class='alert alert-danger'>No Item with this id exists in the database.</div>";
