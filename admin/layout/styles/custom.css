@@ -159,6 +159,8 @@ body {
 .latest .toggle-info:hover{
   color: #444;
 }
+
+
 .latest-users {
   margin-bottom: 0;
 }
@@ -177,6 +179,36 @@ body {
   margin-right: 5px;
 }
 
+.latest-users .comment-box .comment-member,
+.latest-users .comment-box .comment-c {
+  float: left;
+}
+.latest-users .comment-box .comment-member{
+  margin-right: 20px;
+  width: 80px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+.latest-users .comment-box .comment-c {
+  width: calc(100% - 100px);
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.latest-users .comment-box .comment-c:before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent #efefef transparent transparent;
+}
 .tag-r, .tag-y, .tag-b{
   font-size: .75em;
   color: #fff;

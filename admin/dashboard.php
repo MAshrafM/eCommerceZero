@@ -5,7 +5,14 @@
   // Dashboard
   
   $latestUsers = getLatest("*", "users", "UserID");
-  $latestItems = getLatest("*", "items", "Item_ID")
+  $latestItems = getLatest("*", "items", "Item_ID");
+  // prepare comments
+  $stmt = $db->prepare("SELECT comments.*, users.Username AS UserName FROM comments
+                        INNER JOIN users ON users.UserID = comments.uID
+                        ORDER BY ComID DESC 
+                        LIMIT 5");
+  $stmt->execute();
+  $latestComments = $stmt->fetchAll();
 ?>
 <div class="container home-stats text-center">
   <h1 class="text-center">Dashboard</h1>
@@ -42,7 +49,7 @@
         <i class="fa fa-comments"></i>
         <div class="info">
           Total Comments
-          <span>200</span>
+          <span><a href="./comments.php"><?php echo countItems('ComID', 'comments'); ?></a></span>
         </div>
       </div>
     </div>
@@ -50,6 +57,7 @@
 </div>
 <div class="container latest">
   <div class="row">
+    <!-- latest Users-->
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -90,7 +98,7 @@
         </div>
       </div>
     </div>
-    
+    <!-- latest Items-->
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -116,6 +124,50 @@
                   if($item['Approve'] == 0) {
                 ?>
                   <a href="./items.php?v=Approve&tid=<?php echo $item['ItemID']; ?>">
+                    <span class="btn btn-info pull-right">
+                      <i class="fa fa-check"></i> Aprrove
+                    </span>
+                  </a>
+                <?php
+                  }
+                ?>                
+              </li>
+            <?php
+              }
+            ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- latest Comments-->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-comments"></i> Latest Comments.
+          <span class="toggle-info pull-right">
+            <i class="fa fa-plus fa-lg"></i>
+          </span>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled latest-users">
+            <?php 
+              foreach ($latestComments as $comment){
+            ?>
+              <li class="comment-box">
+                <span class="comment-member"><?php echo $comment['UserName']; ?></span>
+                <p class="comment-c"><?php echo $comment['Comment']; ?></p>
+                <a href="./comments.php?v=Edit&comid=<?php echo $item['ComID']; ?>">
+                  <span class="btn btn-primary pull-right">
+                    <i class="fa fa-edit"></i> 
+                      Edit
+                  </span>
+                </a>
+                <?php
+                  if($comment['Status'] == 0) {
+                ?>
+                  <a href="./comments.php?v=Activate&comid=<?php echo $item['ComID']; ?>">
                     <span class="btn btn-info pull-right">
                       <i class="fa fa-check"></i> Aprrove
                     </span>
