@@ -87,7 +87,7 @@
                   <?php
                     if($row['Status'] == 0) {
                   ?>
-                  <a href="?v=Approve&comid=<?php echo $row['ComID']; ?>" class="btn btn-info btn-sm activate"><i class="fa fa-check"></i> Approve</a>
+                  <a href="?v=Activate&comid=<?php echo $row['ComID']; ?>" class="btn btn-info btn-sm activate"><i class="fa fa-check"></i> Approve</a>
                   <?php
                     }
                   ?>
