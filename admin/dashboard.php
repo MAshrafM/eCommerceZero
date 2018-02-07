@@ -69,6 +69,9 @@
         <div class="panel-body">
           <ul class="list-unstyled latest-users">
             <?php 
+              if(empty($latestUsers)){
+                echo '<li>No New Users</li>';
+              } else {
               foreach ($latestUsers as $user){
             ?>
               <li>
@@ -92,7 +95,7 @@
                 ?>                
               </li>
             <?php
-              }
+              }}
             ?>
           </ul>
         </div>
@@ -110,6 +113,9 @@
         <div class="panel-body">
           <ul class="list-unstyled latest-users">
             <?php 
+              if(empty($latestItems)){
+                echo '<li>No New Items</li>';
+              } else {
               foreach ($latestItems as $item){
             ?>
               <li>
@@ -133,7 +139,7 @@
                 ?>                
               </li>
             <?php
-              }
+              }}
             ?>
           </ul>
         </div>
@@ -153,7 +159,10 @@
         <div class="panel-body">
           <ul class="list-unstyled latest-users">
             <?php 
-              foreach ($latestComments as $comment){
+              if(empty($latestComment)){
+                echo '<li>No New Comments.</li>'
+              } else {
+                foreach ($latestComments as $comment){
             ?>
               <li class="comment-box">
                 <span class="comment-member"><?php echo $comment['UserName']; ?></span>
@@ -177,7 +186,7 @@
                 ?>                
               </li>
             <?php
-              }
+              }}
             ?>
           </ul>
         </div>
