@@ -18,12 +18,20 @@
   <h1 class="text-center">Update Member</h1>
   <?php 
     if(empty($formErrors)){
-      // update query
-      $stmt = $db->prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
-      $stmt->execute(array($username, $email, $full, $pass, $id)); 
-      $Msg = "<div class='alert alert-success'>Member Updated</div>";
-      redirectLink($Msg, 'back', 4);
-      
+      // check unique name
+      $checkName = $db->prepare("SELECT * FROM users WHERE Username = ? AND UserID != ?");
+      $checkName->execute(array($username, $id));
+      $checkNameResult = $checkName->fetch()
+      if($checkNameResult == 1) {
+        $Msg = "<div class='alert alert-danger'>Member Exists in Database</div>";
+        redirectLink($Msg, 'back', 4);
+      } else {
+        // update query
+        $stmt = $db->prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
+        $stmt->execute(array($username, $email, $full, $pass, $id)); 
+        $Msg = "<div class='alert alert-success'>Member Updated</div>";
+        redirectLink($Msg, 'back', 4);
+      }
     } else {
     // Show Errors
   ?>
