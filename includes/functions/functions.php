@@ -35,4 +35,15 @@
     header("refresh: $seconds; url=$url");
     exit();
   }
+    /*
+    Get Records.
+    select a field from a table with a limit number of records
+  */
+  function getAll($table){
+    global $db;
+    $latest = $db->prepare("SELECT * From $table");
+    $latest->execute();
+    $rows = $latest->fetchAll();
+    return $rows;
+  }
 ?>
