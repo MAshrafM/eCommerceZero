@@ -159,8 +159,8 @@
         <div class="panel-body">
           <ul class="list-unstyled latest-users">
             <?php 
-              if(empty($latestComment)){
-                echo '<li>No New Comments.</li>'
+              if(empty($latestComments)){
+                echo '<li>No New Comments.</li>';
               } else {
                 foreach ($latestComments as $comment){
             ?>

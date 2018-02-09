@@ -1,6 +1,4 @@
 <?php
-  // Nonavabar
-  $noNavbar = '';
   $pageTitle = 'Home';
   include "init.php";
 ?>

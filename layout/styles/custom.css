@@ -1,0 +1,256 @@
+/* Main Style */
+body {
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  font-size: 16px;
+}
+.asterisk {
+  position: absolute;
+  right: 30px;
+  top: 8px;
+  color: #D20707;
+  font-size: 1.1em;
+}
+/* Login Form */
+.login {
+  width: 300px;
+  margin: 100px auto;
+}
+
+.login h4 {
+  color: #333;
+}
+.login input {
+  margin-bottom: 10px;
+}
+
+.login .form-control {
+  background-color: #e5e5e5;
+}
+
+.login .btn {
+  background-color: #008dde; 
+}
+
+/* Nav Bar */
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  font-size: 1em;
+}
+
+.nav>li>a, .navbar-brand{
+  padding: 15px 12px;
+}
+
+.navbar-inverse .navbar-nav >.open >a,
+.navbar-inverse .navbar-nav >.open >a:focus,
+.navbar-inverse .navbar-nav >.open >a:hover,
+.dropdown-menu {
+  background-color: #3498db;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+  color: #fff;
+  padding: 10px 15px;
+}
+/* Edit Forms */
+.form-control {
+  position: relative;
+}
+
+/* Members Pages */
+.show-pass {
+  position: absolute;
+  top: 6px;
+  right: -30px;
+}
+
+.main-table {
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.main-table th{
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.main-table th a{
+  color: #fff;
+}
+.main-table th a:hover{
+  text-decoration: none;
+}
+
+.main-table td{
+  background-color: #fff;
+  vertical-align: middle !important;
+}
+
+.main-table button{
+  padding: 3px 10px;
+}
+
+/* Dashboard */
+.home-stats .stat {
+  padding: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.home-stats .stat i{
+  position: absolute;
+  font-size: 80px;
+  top: 35px;
+  left: 40px;
+}
+
+.home-stats .stat .info{
+  float: right;
+}
+
+.home-stats .stat a{
+  color: #fff;
+}
+.home-stats .stat a:hover{
+  text-decoration: none;
+}
+.home-stats .stat span {
+  display: block;
+  font-size: 4em;
+  
+}
+
+.home-stats .st-members{
+  background-color: #3498db;
+}
+.home-stats .st-pending{
+  background-color: #c0392b;;
+}
+.home-stats .st-items{
+  background-color: #d35400;
+}
+.home-stats .st-comments{
+  background-color: #8e44ad;
+}
+
+.latest {
+  margin-top: 40px;
+}
+
+.latest .toggle-info{
+  color: #999;
+  cursor: pointer;
+}
+.latest .toggle-info:hover{
+  color: #444;
+}
+
+
+.latest-users {
+  margin-bottom: 0;
+}
+
+.latest-users li {
+  padding: 10px 5px;
+  overflow: hidden;
+}
+
+.latest-users li:nth-child(even){
+  background-color: #eee;
+}
+
+.latest-users .btn {
+  padding: 2px 8px;
+  margin-right: 5px;
+}
+
+.latest-users .comment-box .comment-member,
+.latest-users .comment-box .comment-c {
+  float: left;
+}
+.latest-users .comment-box .comment-member{
+  margin-right: 20px;
+  width: 80px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+.latest-users .comment-box .comment-c {
+  width: calc(100% - 100px);
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.latest-users .comment-box .comment-c:before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent #efefef transparent transparent;
+}
+.tag-r, .tag-y, .tag-b{
+  font-size: .75em;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 3px;
+}
+.tag-r{
+  background-color: #c0392b;
+}
+.tag-y{
+  background-color: #FFB61E;
+}
+.tag-b {
+  background-color: #19B5FE;
+}
+
+.view-option span{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.view-option span.active{
+  color: #19B5FE;
+}
+
+.view-grid{
+  display: none;
+}
+ 
+ main{
+   min-height: 80vh;
+ }
+/* footer */
+footer.well {
+  min-width: 100%;
+  margin-bottom: 0;
+  border-radius: 0;
+  position: relative;
+  bottom: 0;
+}
+
+footer p{
+  font-weight: bold;
+  font-style: italic;
+}
