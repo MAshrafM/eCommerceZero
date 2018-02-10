@@ -35,7 +35,7 @@
     header("refresh: $seconds; url=$url");
     exit();
   }
-    /*
+  /*
     Get Records.
     select a field from a table with a limit number of records
   */
@@ -43,6 +43,17 @@
     global $db;
     $latest = $db->prepare("SELECT * From $table");
     $latest->execute();
+    $rows = $latest->fetchAll();
+    return $rows;
+  }
+  /*
+    Get All Items in a category.
+    select a field from a table with a limit number of records
+  */
+  function getAllItems($cid){
+    global $db;
+    $latest = $db->prepare("SELECT * From items WHERE Cat_ID = ? ORDER BY Item_ID DESC");
+    $latest->execute(array($cid));
     $rows = $latest->fetchAll();
     return $rows;
   }
