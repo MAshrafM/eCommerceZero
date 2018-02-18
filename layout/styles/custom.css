@@ -19,6 +19,22 @@ body {
 .login-page form input{
   margin-bottom: 10px;
 }
+
+.login-page .active{
+  color: #b22020;
+}
+
+.login-page h1{
+  color: #c0c0c0;
+}
+
+.login-page h1 span{
+  cursor: pointer;
+}
+
+.login-page .signup{
+  display: none;
+}
 /* Nav Bar */
 .upperbar{
   padding: 10px;

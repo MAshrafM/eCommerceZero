@@ -5,7 +5,7 @@
 ?>
 <div class="container login-page">
   <h4 class="text-center">
-    <span class="login">Login</span> | <span class="signup">Signup</span>
+    <span class="active" data-class="login">Login</span> | <span data-class="signup">Signup</span>
   </h4>
   <form class="login">
     <input class="form-control" type="text" name="user" placeholder="<?php echo lang('USERLOGIN'); ?>" autocomplete="off" />

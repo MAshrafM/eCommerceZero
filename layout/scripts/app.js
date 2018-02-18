@@ -1,13 +1,4 @@
 $(function () {
-  //Dashboard
-  $('.toggle-info').click(function () {
-    $(this).toggleClass('selected').parent().next('.panel-body').fadeToggle(200);
-    if($(this).hasClass('selected')){
-      $(this).html('<i class="fa fa-minus fa-lg"></i>')
-    } else {
-      $(this).html('<i class="fa fa-plus fa-lg"></i>')
-    }
-  });
   // Hide Placeholder on form-focus
   $('[placeholder]').focus(function () {
     $(this).attr('data-text', $(this).attr('placeholder'));
@@ -60,5 +51,12 @@ $(function () {
     hideEffect: "fadeOut",
     // Sets the jQuery 'fadeOut' effect speed to 400 milleseconds
     hideEffectSpeed: 400
+  });
+  
+  // toggle login and signup
+  $('.login-page h1 span').click(function (){
+    $(this).addClass('active').siblings().removeClass('active');
+    $('.login-page form').hide();
+    $('.' + $(this).data('class')).fadeIn();
   });
 });
