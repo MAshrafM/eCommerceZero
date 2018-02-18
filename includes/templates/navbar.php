@@ -1,3 +1,10 @@
+<div class="upperbar">
+  <div class="container">
+    <a href="login.php">
+      <span class="pull-right">Login</span>
+    </a>
+  </div>
+</div>
 <nav class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">

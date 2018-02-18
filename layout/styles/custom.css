@@ -12,8 +12,18 @@ body {
   font-size: 1.1em;
 }
 /* Login Form */
-
+.login-page form{
+  max-width: 30vh;
+  margin: auto;
+}
+.login-page form input{
+  margin-bottom: 10px;
+}
 /* Nav Bar */
+.upperbar{
+  padding: 10px;
+  background-color: #fff;
+}
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
