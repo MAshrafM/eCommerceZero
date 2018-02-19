@@ -1,8 +1,18 @@
 <div class="upperbar">
   <div class="container">
+    <?php 
+      if(isset($_SESSION['MemberName'])){
+    ?>
+      <span class="pull-right"><?php echo $_SESSION['MemberName']; ?></span>
+    <?php
+      } else {
+    ?>
     <a href="login.php">
       <span class="pull-right">Login</span>
     </a>
+    <?php 
+      }
+    ?>
   </div>
 </div>
 <nav class="navbar navbar-inverse">
