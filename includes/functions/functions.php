@@ -57,4 +57,15 @@
     $rows = $latest->fetchAll();
     return $rows;
   }
+  /*
+    Check User Status
+    Check whether a user is activated or not
+  */
+  function checkUserStatus($user){
+    global $db;
+    $stmt = $db->prepare("SELECT Username, RegStatus FROM users WHERE Username = ? AND RegStatus = 0");
+    $stmt->execute(array($user));
+    $status = $stmt->rowCount();
+    return $status;
+  }
 ?>
