@@ -11,6 +11,7 @@ body {
   color: #D20707;
   font-size: 1.1em;
 }
+
 /* Login Form */
 .login-page form{
   max-width: 30vh;
@@ -139,4 +140,9 @@ footer p{
   top: 10px;
   font-weight: bold;
   background-color: #b4b4b4;
+}
+
+/* Profile */
+.info{
+  margin-top: 20px;
 }
