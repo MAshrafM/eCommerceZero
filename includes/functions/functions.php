@@ -83,11 +83,21 @@
     Get User Info
     Return User information using username stored in Session
   */
-  function getUserInfo($uid){
+  function getUserInfo($uname){
     global $db;
     $getUser = $db->prepare("SELECT * FROM users WHERE Username = ?");
-    $getUser = execute(array($uid);
+    $getUser = execute(array($uname);
     $info = $getUser->fetch();
     return $info;
+  }
+  /* 
+    Get User Comments
+  */
+  function getUserCom($uid){
+    global $db;
+    $getUser = $db->prepare("SELECT Comment FROM comments WHERE uID = ?");
+    $getUser = execute(array($uid);
+    $coms = $getUser->fetch();
+    return $coms;
   }
 ?>

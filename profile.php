@@ -4,7 +4,8 @@
   
   if(isset($_SESSION['user'])){
     $info = $getUserInfo($_SESSION['user']);
-    $items = $getItems('Member_ID', $info['UserID'])
+    $items = $getItems('Member_ID', $info['UserID']);
+    $comments = $getUserCom($info['UserID']);
 ?>
 <h1 class="text-center"> Profile </h1>
 <div class="info block">
@@ -24,6 +25,9 @@
   <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
+        Ads
+      </div>
+      <div class="panel-body">
         <?php 
           if(empty($items)){
         ?>
@@ -47,9 +51,6 @@
           }
         ?>
       </div>
-      <div class="panel-body">
-      
-      </div>
     </div>
   </div>
 </div>
@@ -61,7 +62,19 @@
         My Comments
       </div>
       <div class="panel-body">
-      
+        <?php 
+          if(empty($comments)){
+        ?>
+          <div class="alert alert-danger">This User has no Comments</div>
+        <?php 
+          } else {
+            forEach($comments as $comment) {
+        ?>
+            <p><?php echo $comment['Comment'];?></p>
+        <?php
+            }
+          }
+        ?>
       </div>
     </div>
   </div>
