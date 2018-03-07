@@ -57,6 +57,17 @@
     $rows = $latest->fetchAll();
     return $rows;
   }
+  /* 
+    Get Some Items
+    Dependent on what we pass in for the where 
+  */
+  function getItems($where, $value){
+    global $db;
+    $items = $db->prepare("SELECT * From items WHERE $where = ? ORDER BY Item_ID DESC");
+    $items->execute(array($value));
+    $rows = $items->fetchAll();
+    return $rows;
+  }
   /*
     Check User Status
     Check whether a user is activated or not

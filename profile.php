@@ -4,6 +4,7 @@
   
   if(isset($_SESSION['user'])){
     $info = $getUserInfo($_SESSION['user']);
+    $items = $getItems('Member_ID', $info['UserID'])
 ?>
 <h1 class="text-center"> Profile </h1>
 <div class="info block">
@@ -23,7 +24,28 @@
   <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        My Ads
+        <?php 
+          if(empty($items)){
+        ?>
+          <div class="alert alert-danger">This User has no Ads</div>
+        <?php 
+          } else {
+            forEach($items as $item) {
+        ?>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail item-box">
+                <span class="price-tag"><?php echo $item['Price']; ?></span>
+                <img src="./layout/images/holder.png" alt="holder" class="img-responsive"/>
+                <div class="caption">
+                  <h3><?php echo $item['Name']; ?></h3>
+                  <p><?php echo $item['Description'];?></p>
+                </div>
+              </div>
+            </div>
+        <?php
+            }
+          }
+        ?>
       </div>
       <div class="panel-body">
       
