@@ -68,4 +68,15 @@
     $status = $stmt->rowCount();
     return $status;
   }
+  /*
+    Get User Info
+    Return User information using username stored in Session
+  */
+  function getUserInfo($uid){
+    global $db;
+    $getUser = $db->prepare("SELECT * FROM users WHERE Username = ?");
+    $getUser = execute(array($uid);
+    $info = $getUser->fetch();
+    return $info;
+  }
 ?>

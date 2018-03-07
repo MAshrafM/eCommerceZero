@@ -3,9 +3,7 @@
   include "init.php";
   
   if(isset($_SESSION['user'])){
-    $getUser = $db->prepare("SELECT * FROM users WHERE Username = ?");
-    $getUser = execute(array($_SESSION['user']));
-    $info = $getUser->fetch();
+    $info = $getUserInfo($_SESSION['user']);
 ?>
 <h1 class="text-center"> Profile </h1>
 <div class="info block">
