@@ -30,6 +30,8 @@
       $pass1 = sha1($_POST['password']);
       $pass2 = sha1($_POST['password2']);
       if($pass1 !== $pass2){$formErrors[] = 'Password does not match'}
+      $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+      if(filter_var($email, FILTER_VALIDATE_EMAIL) != true){$formErrors[] = 'The Email is not valid'}
     }
     
   }
@@ -47,10 +49,10 @@
   </form>
   <!-- Signup Form -->
   <form class="signup" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-    <input class="form-control" type="text" name="user" placeholder="<?php echo lang('USERLOGIN'); ?>" autocomplete="off" />
-    <input class="form-control" type="password" name="password" placeholder="<?php echo lang('PASSLOGIN'); ?>" autocomplete="new-password" />
-    <input class="form-control" type="password" name="password2" placeholder="Repeat <?php echo lang('PASSLOGIN'); ?>" autocomplete="new-password" />
-    <input class="form-control" type="email" name="email" placeholder="<?php echo lang('EMAIL'); ?>" autocomplete="new-password" />
+    <input class="form-control" type="text" name="user" placeholder="<?php echo lang('USERLOGIN'); ?>" autocomplete="off" required />
+    <input class="form-control" type="password" name="password" placeholder="<?php echo lang('PASSLOGIN'); ?>" autocomplete="new-password" required />
+    <input class="form-control" type="password" name="password2" placeholder="Repeat <?php echo lang('PASSLOGIN'); ?>" autocomplete="new-password" required />
+    <input class="form-control" type="email" name="email" placeholder="<?php echo lang('EMAIL'); ?>" autocomplete="new-password" required />
     <input class="btn btn-success btn-block" name="signup" type="submit" value="Signup" />
   </form> 
   
