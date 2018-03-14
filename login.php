@@ -32,6 +32,24 @@
       if($pass1 !== $pass2){$formErrors[] = 'Password does not match'}
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       if(filter_var($email, FILTER_VALIDATE_EMAIL) != true){$formErrors[] = 'The Email is not valid'}
+      
+      if(empty($formErrors)){
+        $check = checkItem("Username", "users", $username);
+        if($check == 1){
+          $Msg = '<div class="alert alert-danger">Sorry this User already exists';
+          redirectLink($Msg, 'back');
+        } else {
+          // Insert
+          $u = $db->prepare("INSERT INTO users(Username, Password, Email, RegStatus, Date) VALUES (:user, :pass, :email, :fname, 0, now())");
+          $u->execute(array(
+              'user' => $username,
+              'pass' => $pass1,
+              'email' => $email,
+          ));
+          $Msg = "<div class='alert alert-sucess'> Recored Inserted </div>";
+          redirectLink($Msg);
+        }
+      }
     }
     
   }
