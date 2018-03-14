@@ -41,6 +41,21 @@
   <h4 class="text-center">
     <span class="active" data-class="login">Login</span> | <span data-class="signup">Signup</span>
   </h4>
+  <!-- Flash Errors -->
+  <?php 
+    if(!empty($formErrors)){
+      
+  ?>
+    <div class="errors">
+      <ul>
+        <?php foreach($formErrors as $error) { ?>
+          <li class="msg"><?php echo $error; ?></li>
+        <?php } ?>
+      </ul>
+    </div>
+  <?php
+    }
+  ?>
   <!-- Login Form -->
   <form class="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     <input class="form-control" type="text" name="user" placeholder="<?php echo lang('USERLOGIN'); ?>" autocomplete="off" />
