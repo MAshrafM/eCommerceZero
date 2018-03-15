@@ -15,7 +15,13 @@
         My Information
       </div>
       <div class="panel-body">
-      
+        <ul class="list-unstyled">
+          <li><i class="fa fa-unlock-alt fa-fw"></li><span>Name:</span> <?php echo $info['Username']; ?></li>
+          <li><i class="fa fa-envelop-o fa-fw"></li><span>Email:</span> <?php echo $info['Email']; ?></li>
+          <li><i class="fa fa-user fa-fw"></li><span>Full Name:</span> <?php echo $info['FullName'] ? $info['FullName'] : $info['Username']; ?></li>
+          <li><i class="fa fa-calender fa-fw"></li><span>Register Date:</span> <?php echo $info['Date']; ?></li>
+          <li><i class="fa fa-tags fa-fw"></li><span>Favorite Categories:</span> </li>
+        </ul>
       </div>
     </div>
   </div>
