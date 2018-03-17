@@ -37,7 +37,7 @@
         <?php 
           if(empty($items)){
         ?>
-          <div class="alert alert-danger">This User has no Ads</div>
+          <div class="alert alert-danger">This User has no Ads, Create <a href="newadd.php">New Ad</a>.</div>
         <?php 
           } else {
             forEach($items as $item) {

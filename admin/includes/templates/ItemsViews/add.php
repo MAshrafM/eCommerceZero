@@ -79,7 +79,7 @@
     <!-- submit field -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" value="Add Category" class="btn btn-primary" />
+        <input type="submit" value="Add Item" class="btn btn-primary" />
       </div>
     </div>
   </form>
