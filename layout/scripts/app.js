@@ -39,6 +39,10 @@ $(function () {
       });
     }
   });
+  // live preview
+  $('.live-pre').keyup(function (){
+    $($(this).data('class')).text($(this).val());
+  });
   
   // trigger selectBoxIt plugins
   $('select').selectBoxIt({

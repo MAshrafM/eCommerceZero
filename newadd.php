@@ -1,15 +1,15 @@
 <?php
-  $pageTitle = 'Create New Add';
+  $pageTitle = 'Create New Item';
   include "init.php";
   
   if(isset($_SESSION['user'])){
 ?>
-<h1 class="text-center"> Create New Add </h1>
+<h1 class="text-center"> <?php echo $pageTitle; ?> </h1>
 <div class="create-ad block">
   <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        Create New Ad
+        <?php echo $pageTitle; ?>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -19,21 +19,21 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" name="name" class="form-control" autocomplete="off" required="required" />
+                  <input type="text" name="name" class="form-control live-pre" autocomplete="off" data-class=".live-title" required="required" />
                 </div>
               </div>
               <!-- Description field -->
               <div class="form-group">
                 <label class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                  <textarea type="text" name="description" class="form-control" required="required"></textarea>
+                  <textarea type="text" name="description" class="form-control live-pre" data-class=".live-desc" required="required"></textarea>
                 </div>
               </div>
               <!-- Price field -->
               <div class="form-group">
                 <label class="col-sm-2 control-label">Price</label>
                 <div class="col-sm-10">
-                  <input type="text" name="price" class="form-control" required="required" />
+                  <input type="text" name="price" class="form-control live-pre" data-class=".live-price" required="required" />
                 </div>
               </div>
               <!-- Country field -->
@@ -84,11 +84,11 @@
           </div>
           <div class="col-md-4">
             <div class="thumbnail item-box live-preview">
-                <span class="price-tag"><?php echo $item['Price']; ?></span>
+                <span class="price-tag">$<span class="live-price"></span>0</span>
                 <img src="./layout/images/holder.png" alt="holder" class="img-responsive"/>
                 <div class="caption">
-                  <h3><?php echo $item['Name']; ?></h3>
-                  <p><?php echo $item['Description'];?></p>
+                  <h3 class="live-title">Title</h3>
+                  <p class="live-desc">Description</p>
                 </div>
               </div>
             </div>
