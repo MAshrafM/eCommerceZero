@@ -19,6 +19,21 @@
       if(empty($price)){$formErrors[] = 'Item price must not be empty';}
       if(empty($country)){$formErrors[] = 'Item country must not be empty';}
       if(empty($status)){$formErrors[] = 'Item status must not be empty';}
+      
+      if(empty($formErrors)){
+        $stmt = $db->prepare("INSERT INTO items(Name, Description, Price, Country_Made, Status, Add_Date, Member_ID, Cat_ID) VALUES(:name, :desc, :price, :country, :status, now(), :mem, :catid) ");
+        $stmt->execute(array(
+          'name' => $name,
+          'desc' => $desc,
+          'price' => $price,
+          'country' => $country,
+          'status' => $status,
+          'mem' => $_SESSION['MemberID'],
+          'catid' => $category
+        ));
+        $Msg = "<div class='alert alert-success'>Item Added</div>";
+        redirectLink($Msg, 'back', 4);
+      }
     }
 ?>
 <h1 class="text-center"> <?php echo $pageTitle; ?> </h1>

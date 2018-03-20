@@ -20,6 +20,7 @@
       if ($count > 0){
         echo "found";
         $_SESSION['MemberName'] = $username;
+        $_SESSION['MemberID'] = $row['UserID'];
         header('Location: index.php');
         exit();
       }
