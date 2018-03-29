@@ -7,7 +7,7 @@
   $pageTitle = 'Login';
   // come from post request
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_POST['login'])){
+    if(isset($_POST['login'])){ // login
       $username = $_POST['user'];
       $password = $_POST['password'];
       $hashedPass = sha1($password);
@@ -24,7 +24,7 @@
         header('Location: index.php');
         exit();
       }
-    } elseif (isset($_POST['signup'])) {
+    } elseif (isset($_POST['signup'])) { // signup 
       $formErrors = array();
       $username = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
       if(strlen($username)<4){$formErrors[] = 'Username must be larger than 4 chars'}

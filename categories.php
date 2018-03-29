@@ -1,7 +1,7 @@
 <?php 
   $pageTitle = $_GET['cname']) ? str_replace("-", " ", $_GET['cname']) : "General Items";
   include "init.php";
-  
+  // get item in category
   $items = getAllItems($_GET['cid']);
 ?>
 <div class="container">

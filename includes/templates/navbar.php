@@ -1,6 +1,7 @@
 <div class="upperbar">
   <div class="container">
     <?php 
+      // show action if member
       if(isset($_SESSION['MemberName'])){
     ?>
       <span class="pull-right"><?php echo $_SESSION['MemberName']; ?></span> |
