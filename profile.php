@@ -49,6 +49,7 @@
                 <div class="caption">
                   <h3><?php echo $item['Name']; ?></h3>
                   <p><?php echo $item['Description'];?></p>
+                  <p class="date"><?php $item['Add_Date']; ?></p>
                 </div>
               </div>
             </div>
