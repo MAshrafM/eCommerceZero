@@ -5,6 +5,7 @@
   $stmt = $db->prepare("SELECT * FROM items WHERE Item_ID = ?");
   $stmt->execute(array($itemID));
   $count = $stmt->rowCount();
+  // check errors
   if($count > 0){
     $item = $stmt->fetch();
   
@@ -26,6 +27,7 @@
 </div>
 <?php
   } else {
+    // error msg and redirect
     $Msg = "<p class='alert alert-danger'>There is Such ID for this item</p>"
     redirectLink($Msg)
   }
