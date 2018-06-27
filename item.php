@@ -51,10 +51,10 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
               $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
               $uid = $item['Member_ID'];
-              $tid = $item['Item_ID'];
+              $tid = $_SESSION['uid'];
               
               if(!empty($comment)){
-                $stmt = $db->prepare("INSERT INTO comments(comment, status, comment_date, item_id, user_id) VALUES(:comment, 0, NOW(), :tid, :uid)");
+                $stmt = $db->prepare("INSERT INTO comments(comment, status, comment_date, tid, uid) VALUES(:comment, 0, NOW(), :tid, :uid)");
                 $stmt->execute(array(
                   ':comment' => $comment,
                   ':tid' => $tid,
@@ -71,14 +71,26 @@
       </div>
     </div>
   <hr class="chr">
-  <div class="row">
-    <div class="col-md-3">
-      User Img
+  <?php
+      $stmt = $db->prepare("SELECT comments.*, users.Username AS UserName FROM comments
+      INNER JOIN users ON users.UserID = comments.uID
+      WHERE tid = ? AND status = 1
+      ORDER BY ComID DESC");
+      $stmt->execute(array($item['Item_ID']));
+      $rows = $stmt->fetchAll();
+      foreach($comments as $comment) {
+            
+  ?>
+    <div class="row">
+      <div class="col-md-3">
+        <?php echo $comment['UserName']; ?>
+      </div>
+      <div class="col-md-9">
+        <?php echo $comment['comment']; ?>
+      </div>
     </div>
-    <div class="col-md-9">
-      User Comment 
-    </div>
-  </div>
+  <?php } ?>
+  
 </div>
 <?php
   } else {
