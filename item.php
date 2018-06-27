@@ -2,7 +2,16 @@
   $pageTitle = 'Item';
   include "init.php";
   $itemID = isset($_GET['tid']) && is_numeric($_GET['tid']) ? intval($_GET['tid']) : 0;
-  $stmt = $db->prepare("SELECT * FROM items WHERE Item_ID = ?");
+  $stmt = $db->prepare("
+              SELECT items.*, 
+                     categories.Name AS category_name
+                     users.Username
+              FROM items
+              INNER JOIN categories
+              ON categories.ID = items.Cat_ID
+              INNER JOIN users
+              ON users.UserID = items.Member_ID
+              WHERE Item_ID = ?");
   $stmt->execute(array($itemID));
   $count = $stmt->rowCount();
   // check errors
@@ -22,6 +31,8 @@
       <span><?php echo $item['Add_Date']; ?></span>
       <div>Price: $<?php echo $item['Price']; ?></div>
       <div>Made In: <?php echo $item['Country_Made']; ?></div>
+      <div>Category: <?php echo $item['category_name']; ?></div>
+      <div>Added By: <?php echo $item['Username']; ?></div>
     </div>
   </div>
 </div>
