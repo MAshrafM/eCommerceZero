@@ -70,7 +70,6 @@
         <?php ?>
       </div>
     </div>
-  <hr class="chr">
   <?php
       $stmt = $db->prepare("SELECT comments.*, users.Username AS UserName FROM comments
       INNER JOIN users ON users.UserID = comments.uID
@@ -81,12 +80,16 @@
       foreach($comments as $comment) {
             
   ?>
-    <div class="row">
-      <div class="col-md-3">
-        <?php echo $comment['UserName']; ?>
-      </div>
-      <div class="col-md-9">
-        <?php echo $comment['comment']; ?>
+    <hr class="chr">
+    <div class="comment-box">
+      <div class="row">
+        <div class="col-md-2 text-center">
+          <img class="img-responsive img-thumbnail img-circle center-block" src="./layout/images/holder.png" alt="pp" />
+          <p><?php echo $comment['UserName']; ?></p>
+        </div>
+        <div class="col-md-10">
+          <p class="lead"><?php echo $comment['comment']; ?></p>
+        </div>
       </div>
     </div>
   <?php } ?>
