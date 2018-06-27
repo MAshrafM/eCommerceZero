@@ -25,14 +25,25 @@
     <div class="col-md-3">
       <img src="./layout/images/holder.png" alt="holder" class="img-responsive img-thumbnail center-block"/>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 item-info">
       <h2><?php echo $item['Name']; ?></h2>
       <p><?php echo $item['Description']; ?></p>
-      <span><?php echo $item['Add_Date']; ?></span>
-      <div>Price: $<?php echo $item['Price']; ?></div>
-      <div>Made In: <?php echo $item['Country_Made']; ?></div>
-      <div>Category: <?php echo $item['category_name']; ?></div>
-      <div>Added By: <?php echo $item['Username']; ?></div>
+      <ul class="list-unstyled">
+        <li><i class="fa fa-calender fa-fw"></i><span>Added Date</span> :<?php echo $item['Add_Date']; ?></li>
+        <li><i class="fa fa-money fa-fw"></i><span>Price</span> : $<?php echo $item['Price']; ?></li>
+        <li><i class="fa fa-building fa-fw"></i><span>Made In</span> : <?php echo $item['Country_Made']; ?></li>
+        <li><i class="fa fa-tag fa-fw"></i><span>Category </span>: <a href="categories.php?cid=<?php echo $item['Cat_ID']; ?>&cname=<?php echo str_replace(" ", "-", $item['category_name']); ?>"><?php echo $item['category_name']; ?></a></li>
+        <li><i class="fa fa-user fa-fw"></i><span>Added By</span> : <a href="#"><?php echo $item['Username']; ?></a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="chr">
+  <div class="row">
+    <div class="col-md-3">
+      User Img
+    </div>
+    <div class="col-md-9">
+      User Comment 
     </div>
   </div>
 </div>
