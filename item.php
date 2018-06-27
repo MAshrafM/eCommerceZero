@@ -38,6 +38,27 @@
     </div>
   </div>
   <hr class="chr">
+    <div class="row">
+      <div class="col-md-offset-3">
+        <?php if(isset($_SESSION['user'])) { ?>
+        <div class="add-comment">
+          <h3>Add Your Comment: </h3>
+          <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?tid=' . $item['Item_ID']; ?>">
+            <textarea name="comment"></textarea>
+            <input type="submit" value="Add Comment" class="btn btn-primary">
+          </form>
+          <?php 
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+              echo $_POST['comment'];
+            }
+          ?>
+        </div>
+        <?php } else { ?>
+          <h3><a href="login.php">Login or Register</a> to Add Comments.</h3>
+        <?php ?>
+      </div>
+    </div>
+  <hr class="chr">
   <div class="row">
     <div class="col-md-3">
       User Img

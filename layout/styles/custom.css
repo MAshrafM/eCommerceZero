@@ -195,6 +195,16 @@ footer p{
   width: 120px;
 }
 
+.add-comment h3{
+  margin: 0 0 10px;
+}
+
+.add-comment textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 120px;
+}
 /* error msgs */
 .errors .msg {
   padding: 10px;
