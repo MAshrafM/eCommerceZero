@@ -49,7 +49,19 @@
           </form>
           <?php 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-              echo $_POST['comment'];
+              $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
+              $uid = $item['Member_ID'];
+              $tid = $item['Item_ID'];
+              
+              if(!empty($comment)){
+                $stmt = $db->prepare("INSERT INTO comments(comment, status, comment_date, item_id, user_id) VALUES(:comment, 0, NOW(), :tid, :uid)");
+                $stmt->execute(array(
+                  ':comment' => $comment,
+                  ':tid' => $tid,
+                  ':uid' => $uid
+                ));
+                if($stmt) {echo '<div class="alert alert-success">Added Comment</div>';}
+              }
             }
           ?>
         </div>
