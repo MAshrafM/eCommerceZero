@@ -4,7 +4,7 @@
   $itemID = isset($_GET['tid']) && is_numeric($_GET['tid']) ? intval($_GET['tid']) : 0;
   $stmt = $db->prepare("
               SELECT items.*, 
-                     categories.Name AS category_name
+                     categories.Name AS category_name,
                      users.Username
               FROM items
               INNER JOIN categories
@@ -29,11 +29,11 @@
       <h2><?php echo $item['Name']; ?></h2>
       <p><?php echo $item['Description']; ?></p>
       <ul class="list-unstyled">
-        <li><i class="fa fa-calender fa-fw"></i><span>Added Date</span> :<?php echo $item['Add_Date']; ?></li>
-        <li><i class="fa fa-money fa-fw"></i><span>Price</span> : $<?php echo $item['Price']; ?></li>
-        <li><i class="fa fa-building fa-fw"></i><span>Made In</span> : <?php echo $item['Country_Made']; ?></li>
-        <li><i class="fa fa-tag fa-fw"></i><span>Category </span>: <a href="categories.php?cid=<?php echo $item['Cat_ID']; ?>&cname=<?php echo str_replace(" ", "-", $item['category_name']); ?>"><?php echo $item['category_name']; ?></a></li>
-        <li><i class="fa fa-user fa-fw"></i><span>Added By</span> : <a href="#"><?php echo $item['Username']; ?></a></li>
+        <li><i class="fa fa-calendar fa-fw"></i> <span>Added Date</span> :<?php echo $item['Add_Date']; ?></li>
+        <li><i class="fa fa-money fa-fw"></i> <span>Price</span> : $<?php echo $item['Price']; ?></li>
+        <li><i class="fa fa-building fa-fw"></i> <span>Made In</span> : <?php echo $item['Country_Made']; ?></li>
+        <li><i class="fa fa-tag fa-fw"></i> <span>Category</span> : <a href="categories.php?cid=<?php echo $item['Cat_ID']; ?>&cname=<?php echo str_replace(" ", "-", $item['category_name']); ?>"><?php echo $item['category_name']; ?></a></li>
+        <li><i class="fa fa-user fa-fw"></i> <span>Added By</span> : <a href="#"><?php echo $item['Username']; ?></a></li>
       </ul>
     </div>
   </div>
@@ -65,41 +65,40 @@
             }
           ?>
         </div>
-        <?php } else { ?>
+    <?php } else { ?>
           <h3><a href="login.php">Login or Register</a> to Add Comments.</h3>
-        <?php ?>
+    <?php } ?>
       </div>
     </div>
-  <?php
+    <?php
       $stmt = $db->prepare("SELECT comments.*, users.Username AS UserName FROM comments
       INNER JOIN users ON users.UserID = comments.uID
       WHERE tid = ? AND status = 1
       ORDER BY ComID DESC");
       $stmt->execute(array($item['Item_ID']));
-      $rows = $stmt->fetchAll();
+      $comments = $stmt->fetchAll();
       foreach($comments as $comment) {
             
-  ?>
-    <hr class="chr">
-    <div class="comment-box">
-      <div class="row">
-        <div class="col-md-2 text-center">
-          <img class="img-responsive img-thumbnail img-circle center-block" src="./layout/images/holder.png" alt="pp" />
-          <p><?php echo $comment['UserName']; ?></p>
+    ?>
+        <hr class="chr">
+        <div class="comment-box">
+          <div class="row">
+            <div class="col-md-2 text-center">
+              <img class="img-responsive img-thumbnail img-circle center-block" src="./layout/images/holder.png" alt="pp" />
+              <p><?php echo $comment['UserName']; ?></p>
+            </div>
+            <div class="col-md-10">
+              <p class="lead"><?php echo $comment['comment']; ?></p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-10">
-          <p class="lead"><?php echo $comment['comment']; ?></p>
-        </div>
-      </div>
-    </div>
-  <?php } ?>
-  
-</div>
+    <?php } ?>
+  </div>
 <?php
   } else {
     // error msg and redirect
-    $Msg = "<p class='alert alert-danger'>There is Such ID for this item</p>"
-    redirectLink($Msg)
+    $Msg = "<p class='alert alert-danger'>There is Such ID for this item</p>";
+    redirectLink($Msg);
   }
 ?>
 <?php include $tpl."footer.php"; ?>

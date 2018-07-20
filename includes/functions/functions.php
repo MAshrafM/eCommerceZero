@@ -68,6 +68,7 @@
     $rows = $items->fetchAll();
     return $rows;
   }
+
   /*
     Check User Status
     Check whether a user is activated or not
@@ -86,7 +87,7 @@
   function getUserInfo($uname){
     global $db;
     $getUser = $db->prepare("SELECT * FROM users WHERE Username = ?");
-    $getUser = execute(array($uname);
+    $getUser = execute(array($uname));
     $info = $getUser->fetch();
     return $info;
   }
@@ -96,7 +97,7 @@
   function getUserCom($uid){
     global $db;
     $getUser = $db->prepare("SELECT Comment FROM comments WHERE uID = ?");
-    $getUser = execute(array($uid);
+    $getUser = execute(array($uid));
     $coms = $getUser->fetch();
     return $coms;
   }

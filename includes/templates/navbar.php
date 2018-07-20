@@ -11,7 +11,7 @@
     <?php
         $userStatus = checkUserStatus($_SESSION['MemberName']);
         if($userStatus == 1){
-          echo 'Waiting Admin Approval.'
+          echo 'Waiting Admin Approval.';
         }
       } else {
     ?>

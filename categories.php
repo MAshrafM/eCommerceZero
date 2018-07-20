@@ -1,11 +1,11 @@
 <?php 
-  $pageTitle = $_GET['cname']) ? str_replace("-", " ", $_GET['cname']) : "General Items";
+  $pageTitle = $_GET['cname'] ? str_replace("-", " ", $_GET['cname']) : "General Items";
   include "init.php";
   // get item in category
   $items = getAllItems($_GET['cid']);
 ?>
 <div class="container">
-  <h1 class="text-center"><?php echo $_GET['cname']) ? str_replace("-", " ", $_GET['cname']): "General Item"; ?> </h1>
+  <h1 class="text-center"><?php echo $_GET['cname'] ? str_replace("-", " ", $_GET['cname']) : "General Item"; ?> </h1>
   <div class="row">
   <?php 
     if(empty($items)){

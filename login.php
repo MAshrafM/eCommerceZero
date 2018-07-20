@@ -27,12 +27,12 @@
     } elseif (isset($_POST['signup'])) { // signup 
       $formErrors = array();
       $username = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-      if(strlen($username)<4){$formErrors[] = 'Username must be larger than 4 chars'}
+      if(strlen($username)<4){$formErrors[] = 'Username must be larger than 4 chars';}
       $pass1 = sha1($_POST['password']);
       $pass2 = sha1($_POST['password2']);
-      if($pass1 !== $pass2){$formErrors[] = 'Password does not match'}
+      if($pass1 !== $pass2){$formErrors[] = 'Password does not match';}
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-      if(filter_var($email, FILTER_VALIDATE_EMAIL) != true){$formErrors[] = 'The Email is not valid'}
+      if(filter_var($email, FILTER_VALIDATE_EMAIL) != true){$formErrors[] = 'The Email is not valid';}
       
       if(empty($formErrors)){
         $check = checkItem("Username", "users", $username);
