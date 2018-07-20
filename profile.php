@@ -2,10 +2,10 @@
   $pageTitle = 'Profile';
   include "init.php";
   
-  if(isset($_SESSION['user'])){
-    $info = $getUserInfo($_SESSION['user']);
-    $items = $getItems('Member_ID', $info['UserID']);
-    $comments = $getUserCom($info['UserID']);
+  if(isset($_SESSION['MemberName'])){
+    $info = getUserInfo($_SESSION['MemberName']);
+    $items = getItems('Member_ID', $info['UserID']);
+    $comments = getUserCom($info['UserID']);
 ?>
 <h1 class="text-center"> Profile </h1>
 <div class="info block">
@@ -16,11 +16,11 @@
       </div>
       <div class="panel-body">
         <ul class="list-unstyled">
-          <li><i class="fa fa-unlock-alt fa-fw"></i><span>Name:</span> <?php echo $info['Username']; ?></li>
-          <li><i class="fa fa-envelop-o fa-fw"></i><span>Email:</span> <?php echo $info['Email']; ?></li>
-          <li><i class="fa fa-user fa-fw"></i><span>Full Name:</span> <?php echo $info['FullName'] ? $info['FullName'] : $info['Username']; ?></li>
-          <li><i class="fa fa-calender fa-fw"></i><span>Register Date:</span> <?php echo $info['Date']; ?></li>
-          <li><i class="fa fa-tags fa-fw"></i><span>Favorite Categories:</span> </li>
+          <li><i class="fa fa-unlock-alt fa-fw"></i> <span>Name</span> : <?php echo $info['Username']; ?></li>
+          <li><i class="fa fa-envelope-o fa-fw"></i> <span>Email</span> : <?php echo $info['Email']; ?></li>
+          <li><i class="fa fa-user fa-fw"></i> <span>Full Name</span> : <?php echo $info['FullName'] ? $info['FullName'] : $info['Username']; ?></li>
+          <li><i class="fa fa-calendar fa-fw"></i> <span>Register Date</span> : <?php echo $info['Date']; ?></li>
+          <li><i class="fa fa-tags fa-fw"></i> <span>Fav Categories</span> : </li>
         </ul>
       </div>
     </div>

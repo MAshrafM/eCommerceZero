@@ -2,7 +2,7 @@
   $pageTitle = 'Create New Item';
   include "init.php";
   
-  if(isset($_SESSION['user'])){
+  if(isset($_SESSION['MemberID'])){
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
       $formErrors = array();
       
