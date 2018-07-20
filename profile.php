@@ -4,7 +4,7 @@
   
   if(isset($_SESSION['MemberName'])){
     $info = getUserInfo($_SESSION['MemberName']);
-    $items = getItems('Member_ID', $info['UserID']);
+    $items = getItems('Member_ID', $info['UserID'], 1);
     $comments = getUserCom($info['UserID']);
 ?>
 <h1 class="text-center"> Profile </h1>
@@ -45,6 +45,7 @@
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail item-box">
                 <span class="price-tag"><?php echo $item['Price']; ?></span>
+                <?php if($item['Approve'] == 0) {echo 'Not Approved';} ?>
                 <img src="./layout/images/holder.png" alt="holder" class="img-responsive"/>
                 <div class="caption">
                   <h3><a href="item.php?tid=<?php echo $item['item_ID']; ?>"><?php echo $item['Name']; ?></a></h3>
