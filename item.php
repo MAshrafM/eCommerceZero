@@ -40,11 +40,11 @@
   <hr class="chr">
     <div class="row">
       <div class="col-md-offset-3">
-        <?php if(isset($_SESSION['user'])) { ?>
+        <?php if(isset($_SESSION['MemberID'])) { ?>
         <div class="add-comment">
           <h3>Add Your Comment: </h3>
           <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?tid=' . $item['Item_ID']; ?>">
-            <textarea name="comment"></textarea>
+            <textarea name="comment" required></textarea>
             <input type="submit" value="Add Comment" class="btn btn-primary">
           </form>
           <?php 
