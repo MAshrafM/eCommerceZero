@@ -37,12 +37,21 @@
   }
   /*
     Get Records.
+  */
+  function get($field, $table, $where = NULL, $orderfield, $order = 'DESC'){
+    global $db;
+    $latest = $db->prepare("SELECT $field From $table $where ORDER BY $orderfiled $order");
+    $latest->execute();
+    $rows = $latest->fetchAll();
+    return $rows;
+  }
+  /*
+    Get Records.
     select a field from a table with a limit number of records
   */
   function getAll($table, $where = NULL){
     global $db;
-    $sql = $where == NULL ? '' : $where;
-    $latest = $db->prepare("SELECT * From $table $sql");
+    $latest = $db->prepare("SELECT * From $table $where");
     $latest->execute();
     $rows = $latest->fetchAll();
     return $rows;
