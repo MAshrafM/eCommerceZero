@@ -4,7 +4,7 @@
       // show action if member
       if(isset($_SESSION['MemberName'])){
     ?>
-      <span class="pull-right"><?php echo $_SESSION['MemberName']; ?></span> |
+      <span><?php echo $_SESSION['MemberName']; ?></span> |
       <a href="profile.php">My Profile</a> | 
       <a href="newad.php">New Ad</a> | 
       <a href="logout.php">Logout</a> .

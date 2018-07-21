@@ -44,8 +44,10 @@
         ?>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail item-box">
-                <span class="price-tag"><?php echo $item['Price']; ?></span>
-                <?php if($item['Approve'] == 0) {echo 'Not Approved';} ?>
+                <span class="price-tag">$<?php echo $item['Price']; ?></span>
+                <?php if($item['Approve'] == 0) { ?>
+                  <span class="approve-status">Waiting Approval</span> 
+                <?php } ?>
                 <img src="./layout/images/holder.png" alt="holder" class="img-responsive"/>
                 <div class="caption">
                   <h3><a href="item.php?tid=<?php echo $item['item_ID']; ?>"><?php echo $item['Name']; ?></a></h3>

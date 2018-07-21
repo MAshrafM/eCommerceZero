@@ -195,6 +195,20 @@ footer p{
   width: 120px;
 }
 
+.item-box .approve-status {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #b85a5a;
+  color:#fff;
+  padding: 3px 5px;
+}
+
+.item-box .caption p {
+  height: 44px;
+  max-height: 44px;
+}
+
 .add-comment h3{
   margin: 0 0 10px;
 }
