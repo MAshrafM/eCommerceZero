@@ -39,9 +39,10 @@
     Get Records.
     select a field from a table with a limit number of records
   */
-  function getAll($table){
+  function getAll($table, $where = NULL){
     global $db;
-    $latest = $db->prepare("SELECT * From $table");
+    $sql = $where == NULL ? '' : $where;
+    $latest = $db->prepare("SELECT * From $table $sql");
     $latest->execute();
     $rows = $latest->fetchAll();
     return $rows;

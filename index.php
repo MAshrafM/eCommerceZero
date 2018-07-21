@@ -2,7 +2,7 @@
   $pageTitle = 'Home';
   include "init.php";
   
-  $items = getAll("categories")
+  $items = getAll("categories", "WHERE Approve = 1")
 ?>
   
   
