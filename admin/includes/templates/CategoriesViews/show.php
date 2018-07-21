@@ -28,6 +28,7 @@
         <th>#ID</th>
         <th>Category</th>
         <th>Description</th>
+        <th>Parent</th>
         <th>
           <?php 
             if($sort == 'asc'){
@@ -51,6 +52,15 @@
           <td><?php echo $row['ID']; ?></td>
           <td><?php echo $row['Name']; ?></td>
           <td><?php echo $row['Description']; ?></td>
+          <td><?php 
+            if($row['parent'] == 0) {
+              echo 'None';
+            } else {
+              $where = 'WHERE ID = '.$row['parent'];
+              $parent = get('Name', 'categories', $where, 'ID');
+              echo $parent[0]['Name'];
+            }
+            ?></td>
           <td><?php echo $row['Ordering']; ?></td>
           <td><?php echo $row['Visibility'] ? 'No' : 'Yes'; ?></td>
           <td><?php echo $row['Allow_Comment'] ? 'No' : 'Yes'; ?></td>
@@ -68,6 +78,7 @@
   <div class="view-grid">
     <div class="row">
       <?php foreach($rows as $row) { ?>
+        <?php if($row['parent']==0){ ?>
         <div class="col-md-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
@@ -88,6 +99,13 @@
                 <div class="pull-left">
                   <?php echo $row['Visibility'] ? "<span class='tag-r'>Hidden</span>" : ''; ?>
                   <?php echo $row['Allow_Comment'] ? "<span class='tag-y'>Comment Disabled</span>" : ''; ?>
+                  <?php 
+                    $childs = get('*', 'categories', "where parent = {$row['ID']}", 'ID');
+                    foreach($childs as $child){
+                      echo $child ? "<span class='tag-y'>{$child['Name']}</span> " : '';
+                    }
+                    
+                  ?>
                   <?php echo $row['Allow_Ads'] ? "<span class='tag-b'>Ads Disabled</span>" : ''; ?>
                 </div>
                 <div class="pull-right">
@@ -98,7 +116,7 @@
             </div>
           </div>
         </div>
-      <?php } ?>
+        <?php }} ?>
     </div>
   </div>
   <a href="?v=Add" class="btn btn-primary"><i class="fa fa-plus"></i> New Category</a>

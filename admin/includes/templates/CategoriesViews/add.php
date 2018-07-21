@@ -22,6 +22,21 @@
         <input type="text" name="ordering" class="form-control" />
       </div>
     </div>
+    <!-- Type Field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Parent ?</label>
+      <div class="col-sm-10">
+        <select name="parent">
+          <option value="0">None</option>
+          <?php 
+            $allCats = get("*", "categories", "WHERE parent = 0", "ID");
+            foreach($allCats as $cat){
+          ?>
+            <option value="<?php echo $cat['ID'];?>"><?php echo $cat['Name'];?></option>
+            <?php } ?>
+        </select>
+      </div>
+    </div>
     <!-- Visible field -->
     <div class="form-group">
       <label class="col-sm-2 control-label">Visible</label>

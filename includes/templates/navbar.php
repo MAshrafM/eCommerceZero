@@ -13,7 +13,7 @@
         <ul class="dropdown-menu">
           <li><a href="profile.php">My Profile</a></li>
           <li><a href="newad.php">New Ad</a></li>
-          <li><a href="profile.php#my-ads">My ADs</a></li>
+          <li><a href="profile.php#my-items">My ADs</a></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>

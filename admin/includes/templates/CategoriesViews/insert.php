@@ -7,6 +7,7 @@
     $vis = $_POST['visible'];
     $com = $_POST['commenting'];
     $ads = $_POST['ads'];
+    $parent = $_POST['parent'];
     // validate form
     $formErrors = array();
     if(empty($name)){$formErrors[] = 'Category Name can not be empty';}
@@ -22,10 +23,11 @@
         redirectLink($errorCheck, 6);
       } else {    
         // Insert Category
-        $stmt = $db->prepare("INSERT INTO categories(Name, Description, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:name, :desc, :ordering, :vis, :com, :ads) ");
+        $stmt = $db->prepare("INSERT INTO categories(Name, Description, parent, Ordering, Visibility, Allow_Comment, Allow_Ads) VALUES(:name, :desc, :parent, :ordering, :vis, :com, :ads) ");
         $stmt->execute(array(
           'name' => $name,
           'desc' => $desc,
+          'parent' => $parent,
           'ordering' => $ordering,
           'vis' => $vis,
           'com' => $com,

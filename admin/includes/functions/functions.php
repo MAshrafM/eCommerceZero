@@ -70,4 +70,14 @@
     $rows = $latest->fetchAll();
     return $rows;
   }
+  /*
+    Get Records.
+  */
+  function get($field, $table, $where = NULL, $orderfield, $order = 'DESC'){
+    global $db;
+    $latest = $db->prepare("SELECT $field From $table $where ORDER BY $orderfield $order");
+    $latest->execute();
+    $rows = $latest->fetchAll();
+    return $rows;
+  }
 ?>

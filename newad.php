@@ -7,7 +7,7 @@
       $formErrors = array();
       
       $title = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-      $desc = filter_var($_POST['desc'], FILTER_SANITIZE_STRING);
+      $desc = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
       $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_INT);
       $country = filter_var($_POST['country'], FILTER_SANITIZE_STRING);
       $status = filter_var($_POST['status'], FILTER_SANITIZE_NUMBER_INT);
@@ -23,7 +23,7 @@
       if(empty($formErrors)){
         $stmt = $db->prepare("INSERT INTO items(Name, Description, Price, Country_Made, Status, Add_Date, Member_ID, Cat_ID) VALUES(:name, :desc, :price, :country, :status, now(), :mem, :catid) ");
         $stmt->execute(array(
-          'name' => $name,
+          'name' => $title,
           'desc' => $desc,
           'price' => $price,
           'country' => $country,
