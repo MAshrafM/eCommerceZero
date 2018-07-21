@@ -4,10 +4,19 @@
       // show action if member
       if(isset($_SESSION['MemberName'])){
     ?>
-      <span><?php echo $_SESSION['MemberName']; ?></span> |
-      <a href="profile.php">My Profile</a> | 
-      <a href="newad.php">New Ad</a> | 
-      <a href="logout.php">Logout</a> .
+      <img src="./layout/images/holder.png" alt="holder" class="img-circle img-thumbnail my-img"/>
+      <div class="btn-group my-info">
+        <span class="btn drowpdown-toggle" data-toggle="dropdown">
+          <?php echo $_SESSION['MemberName']; ?>
+          <span class="caret"></span>
+        </span>
+        <ul class="dropdown-menu">
+          <li><a href="profile.php">My Profile</a></li>
+          <li><a href="newad.php">New Ad</a></li>
+          <li><a href="profile.php#my-ads">My ADs</a></li>
+          <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </div>
     <?php
         $userStatus = checkUserStatus($_SESSION['MemberName']);
         if($userStatus == 1){

@@ -27,7 +27,7 @@
   </div>
 </div>
   
-<div class="Ads block">
+<div id="my-ads" class="Ads block">
   <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
