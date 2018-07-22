@@ -1,6 +1,6 @@
 <h1 class="text-center">Add Members</h1>
 <div class="container">
-  <form class="form-horizontal" action="?v=Insert" method="POST">
+  <form class="form-horizontal" action="?v=Insert" method="POST" enctype="multipart/form-data">
     <!-- username field -->
     <div class="form-group">
       <label class="col-sm-2 control-label"><?php echo lang('USERLOGIN'); ?></label>
@@ -30,6 +30,13 @@
         <i class="show-pass fa fa-eye fa-2x"></i>
       </div>
     </div>   
+    <!-- Avatar field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Avatar</label>
+      <div class="col-sm-10">
+        <input type="file" name="avatar" class="form-control" required="required" />
+      </div>
+    </div>
     <!-- submit field -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

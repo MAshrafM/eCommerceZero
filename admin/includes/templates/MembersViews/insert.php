@@ -6,6 +6,15 @@
     $email = $_POST['email'];
     $pass = $_POST['password'];
     $hashPass = sha1($pass);
+    //Files
+    $avatar = $_FILES['avatar'];
+    $avatarName = $avatar['name'];
+    $avatarSize = $avatar['size'];
+    $avatarTemp = $avatar['tmp_name'];
+    $avatarType = $avatar['type'];
+    $avatarExt = strtolower(end(explode('.', $avatarName)));
+    $avatarExtensions = array("jpeg", "jpg", "png", "gif");
+    
     // validate form
     $formErrors = array();
     if(empty($username)){$formErrors[] = 'Username can not be empty';}
@@ -14,6 +23,12 @@
     if(empty($pass)){$formErrors[] = 'Password can not be empty';}
     if(strlen($username) < 4){$formErrors[] = 'Username must be larger than 4 characters';}
     if(strlen($username) > 20){$formErrors[] = 'Username must be less than 20 characters';}
+    if(!in_array($avatarExt, $avatarExtensions)){
+      $formErrors[] = $avatarExt . 'This extension is not allowed';
+    }
+    if($avatarSize > 4194305){
+      $formErrors[] = $avatarSize . 'This size is not allowed';
+    }
 ?>
 <div class="container">
   <h1 class="text-center">Update Member</h1>
@@ -26,12 +41,15 @@
         redirectLink($errorCheck, 6);
       } else {    
         // Insert Member
-        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, RegStatus, Date) VALUES(:user, :pass, :email, :fname, 1, now()) ");
+        $pic = rand(0, 100000) . '_' . $avatarName;
+        move_uploaded_file($avatarTemp, "uploads\avatars\\" . $pic );
+        $stmt = $db->prepare("INSERT INTO users(Username, Password, Email, FullName, Avatar, RegStatus, Date) VALUES(:user, :pass, :email, :fname, :avatar, 1, now()) ");
         $stmt->execute(array(
           'user' => $username,
           'pass' => $hashPass,
           'email' => $email,
-          'fname' => $full
+          'fname' => $full,
+          'avatar' => $pic
         ));
         $Msg = "<div class='alert alert-success'>Member Added</div>";
         redirectLink($Msg, 'back', 4);

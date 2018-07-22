@@ -12,7 +12,7 @@
 
 <h1 class="text-center"><?php echo lang('EDIT').' '.lang('MEMBERS'); ?></h1>
 <div class="container">
-  <form class="form-horizontal" action="?v=Update" method="POST">
+  <form class="form-horizontal" action="?v=Update" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="userid" value="<?php echo $userid; ?>" />
     <!-- username field -->
     <div class="form-group">
@@ -42,7 +42,14 @@
         <input type="hidden" name="oldpassword" value=<?php echo $row['Password']; ?> />
         <input type="password" name="newpassword" class="form-control" autocomplete="new-password" />
       </div>
-    </div>   
+    </div> 
+<!-- Avatar field -->
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Avatar</label>
+      <div class="col-sm-10">
+        <input type="file" name="avatar" class="form-control">
+      </div>
+    </div>    
     <!-- submit field -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
