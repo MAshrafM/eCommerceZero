@@ -1,10 +1,12 @@
 # eCommerceZero  
 an eCommerce Shop website using PHP, MYSQL, JQuery, Bootstrap  
 Included:  
-- different views for Admins / Members  
-- Categories  
-- Items  
-- Image Uploads  
+- different views for Admins / Members.
+- Admin Dashboard controls.
+- Member Profile views. 
+- Categories.  
+- Items.  
+- Image Uploads.  
 Following the Elzero Web School [playlist](https://www.youtube.com/playlist?list=PLDoPjvoNmBAxdiBh6J62wOzEnvC4CNuFU) plus adding to it different functions, view and coding style.
 
 ## Showcase  
