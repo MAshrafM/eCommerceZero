@@ -129,7 +129,7 @@
                 <?php
                   if($item['Approve'] == 0) {
                 ?>
-                  <a href="./items.php?v=Approve&tid=<?php echo $item['ItemID']; ?>">
+                  <a href="./items.php?v=Approve&tid=<?php echo $item['Item_ID']; ?>">
                     <span class="btn btn-info pull-right">
                       <i class="fa fa-check"></i> Aprrove
                     </span>

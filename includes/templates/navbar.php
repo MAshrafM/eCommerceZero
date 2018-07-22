@@ -46,7 +46,7 @@
     <div class="collapse navbar-collapse" id="navcollapse">
       <ul class="nav navbar-nav navbar-right">
         <?php 
-          foreach(getAll('categories') as $cat){
+          foreach(get('*','categories','where parent = 0', 'ID') as $cat){
         ?>
           <li><a href="categories.php?cid=<?php echo $cat['ID']; ?>&cname=<?php echo str_replace(" ", "-", $cat["Name"]); ?>"><?php echo $cat['Name']; ?></a></li>
         <?php

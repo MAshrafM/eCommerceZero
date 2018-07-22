@@ -18,7 +18,7 @@
   ?>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail item-box">
-          <span class="price-tag"><?php echo $item['Price']; ?></span>
+          <span class="price-tag">$<?php echo $item['Price']; ?></span>
           <img src="./layout/images/holder.png" alt="holder" class="img-responsive"/>
           <div class="caption">
             <h3><a href="item.php?tid=<?php echo $item['Item_ID']; ?>"><?php echo $item['Name']; ?></a></h3>
