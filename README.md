@@ -8,4 +8,4 @@ Included:
 Following the Elzero Web School [playlist](https://www.youtube.com/playlist?list=PLDoPjvoNmBAxdiBh6J62wOzEnvC4CNuFU) plus adding to it different functions, view and coding style.
 
 ## Showcase  
-![Show](https://github.com/MAshrafM/eCommerceZero/blob/master/CC/04_ColorRain/show.jpg)
+![Show](https://github.com/MAshrafM/eCommerceZero/blob/master/show.jpg)
